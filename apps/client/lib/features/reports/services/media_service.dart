@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:krizovka_client/core/utils/image_source_data.dart';
@@ -15,7 +16,7 @@ class DefaultMediaPickerService implements MediaPickerService {
   Future<ImageSourceData?> pickOrTakePhoto() async {
     try {
       final xFile = await _picker.pickImage(
-        source: ImageSource.camera,
+        source: kIsWeb ? ImageSource.gallery : ImageSource.camera,
         maxWidth: 1920,
         maxHeight: 1080,
         imageQuality: 85,

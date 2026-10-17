@@ -5,6 +5,7 @@ import 'package:krizovka_client/features/geofencing/state/geofence_state.dart';
 import 'package:krizovka_client/features/guides/guides_page.dart';
 import 'package:krizovka_client/features/reports/data/reports_api_client.dart';
 import 'package:krizovka_client/features/reports/models/report_models.dart';
+import 'package:krizovka_client/features/reports/services/media_service.dart';
 import 'package:krizovka_client/features/reports/state/emergency_state.dart';
 import 'package:krizovka_client/features/settings/settings_page.dart';
 
@@ -939,10 +940,20 @@ class _ReportsPageState extends ConsumerState<_ReportsPage> {
           subtitle: 'Pořídit nebo vybrat fotografii ze situace.',
           actionLabel: 'Vyfotit',
           onTap: () async {
+            final image = await ref.read(mediaPickerServiceProvider).pickOrTakePhoto();
+            if (image == null || image.bytes == null) return;
+
             if (!isEmergencyActive) {
               await notifier.sendEmergencyReport(description: 'Hlášení s fotografií – POTŘEBUJI POMOC');
             }
-            await notifier.pickAndUploadPhoto();
+            final fileName = image.path?.isNotEmpty == true
+                ? image.path!
+                : 'foto_${DateTime.now().millisecondsSinceEpoch}.jpg';
+            await notifier.uploadAttachmentBytes(
+              bytes: image.bytes!,
+              fileName: fileName,
+              contentType: 'image/jpeg',
+            );
           },
         ),
         _ReportingOptionTile(
