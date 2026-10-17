@@ -1,0 +1,30 @@
+<Solution>
+  <Folder Name="/recycled/" />
+  <Folder Name="/recycled/src/" />
+  <Folder Name="/recycled/src/Services/" />
+  <Folder Name="/recycled/src/Services/US/" />
+  <Folder Name="/recycled/src/Services/US/src/">
+    <Project Path="recycled/src/Services/US/src/Krizovka.Users.Api/Krizovka.Users.Api.csproj" />
+    <Project Path="recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application.csproj" />
+    <Project Path="recycled/src/Services/US/src/Krizovka.Users.Domain/Krizovka.Users.Domain.csproj" />
+    <Project Path="recycled/src/Services/US/src/Krizovka.Users.Infrastructure/Krizovka.Users.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/recycled/src/Shared/" />
+  <Folder Name="/recycled/src/Shared/Common/">
+    <Project Path="recycled/src/Shared/Common/Krizovka.Shared.ApiClient/Krizovka.Shared.ApiClient.csproj" />
+    <Project Path="recycled/src/Shared/Common/Krizovka.Shared.AspNetCore/Krizovka.Shared.AspNetCore.csproj" />
+    <Project Path="recycled/src/Shared/Common/Krizovka.Shared.AuditLogging/Krizovka.Shared.AuditLogging.csproj" />
+    <Project Path="recycled/src/Shared/Common/Krizovka.Shared.Authentication/Krizovka.Shared.Authentication.csproj" />
+    <Project Path="recycled/src/Shared/Common/Krizovka.Shared.ErrorHandling/Krizovka.Shared.ErrorHandling.csproj" />
+    <Project Path="recycled/src/Shared/Common/Krizovka.Shared.Messaging/Krizovka.Shared.Messaging.csproj" />
+    <Project Path="recycled/src/Shared/Common/Krizovka.Shared.ServiceRegistry/Krizovka.Shared.ServiceRegistry.csproj" />
+  </Folder>
+  <Folder Name="/recycled/src/Shared/Core/">
+    <Project Path="recycled/src/Shared/Core/Krizovka.Shared.Events.Core/Krizovka.Shared.Events.Core.csproj" />
+  </Folder>
+  <Folder Name="/Tests/">
+    <Project Path="Tests/Krizovka.Architecture.Tests/Krizovka.Architecture.Tests.csproj" />
+    <Project Path="Tests/Krizovka.Users.Api.Tests/Krizovka.Users.Api.Tests.csproj" />
+  </Folder>
+  <Project Path="Krizovka.Api/Krizovka.Api.csproj" />
+</Solution>

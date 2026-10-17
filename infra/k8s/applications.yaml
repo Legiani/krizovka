@@ -1,0 +1,194 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: krizovka-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: krizovka-api
+  template:
+    metadata:
+      labels:
+        app: krizovka-api
+    spec:
+      containers:
+        - name: api
+          image: krizovka/api:bootstrap-20261017
+          imagePullPolicy: Never
+          envFrom:
+            - secretRef:
+                name: api-credentials
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Production
+            - name: US_URL
+              value: http://krizovka-users:8080
+            - name: Database__MigrateOnStartup
+              value: "true"
+          ports:
+            - containerPort: 8080
+          resources:
+            requests: { cpu: 50m, memory: 96Mi }
+            limits: { cpu: "1", memory: 384Mi }
+          startupProbe:
+            httpGet: { path: /health/live, port: 8080 }
+            periodSeconds: 5
+            failureThreshold: 60
+          readinessProbe:
+            httpGet: { path: /health/ready, port: 8080 }
+            periodSeconds: 10
+          livenessProbe:
+            httpGet: { path: /health/live, port: 8080 }
+            periodSeconds: 20
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: krizovka-api
+spec:
+  selector: { app: krizovka-api }
+  ports:
+    - port: 8080
+      targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: krizovka-users
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: krizovka-users
+  template:
+    metadata:
+      labels:
+        app: krizovka-users
+    spec:
+      containers:
+        - name: users
+          image: krizovka/users:bootstrap-20261017
+          imagePullPolicy: Never
+          envFrom:
+            - secretRef:
+                name: users-credentials
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Production
+            - name: US_URL
+              value: http://krizovka-users:8080
+            - name: Database__MigrateOnStartup
+              value: "true"
+            - name: MASSTRANSIT_INMEMORY
+              value: "true"
+          ports:
+            - containerPort: 8080
+          resources:
+            requests: { cpu: 50m, memory: 128Mi }
+            limits: { cpu: "1", memory: 512Mi }
+          startupProbe:
+            httpGet: { path: /health/live, port: 8080 }
+            periodSeconds: 5
+            failureThreshold: 60
+          readinessProbe:
+            httpGet: { path: /health/ready, port: 8080 }
+            periodSeconds: 10
+          livenessProbe:
+            httpGet: { path: /health/live, port: 8080 }
+            periodSeconds: 20
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: krizovka-users
+spec:
+  selector: { app: krizovka-users }
+  ports:
+    - port: 8080
+      targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: krizovka-admin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: krizovka-admin
+  template:
+    metadata:
+      labels:
+        app: krizovka-admin
+    spec:
+      containers:
+        - name: admin
+          image: krizovka/admin:bootstrap-20261017
+          imagePullPolicy: Never
+          env:
+            - name: API_INTERNAL_URL
+              value: http://krizovka-api:8080
+          ports:
+            - containerPort: 3000
+          resources:
+            requests: { cpu: 50m, memory: 96Mi }
+            limits: { cpu: "1", memory: 384Mi }
+          readinessProbe:
+            httpGet: { path: /health/live, port: 3000 }
+            periodSeconds: 10
+          livenessProbe:
+            httpGet: { path: /health/live, port: 3000 }
+            initialDelaySeconds: 20
+            periodSeconds: 20
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: krizovka-admin
+spec:
+  selector: { app: krizovka-admin }
+  ports:
+    - port: 3000
+      targetPort: 3000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: krizovka-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: krizovka-client
+  template:
+    metadata:
+      labels:
+        app: krizovka-client
+    spec:
+      containers:
+        - name: client
+          image: krizovka/client:bootstrap-20261017
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 80
+          resources:
+            requests: { cpu: 10m, memory: 16Mi }
+            limits: { cpu: 200m, memory: 64Mi }
+          readinessProbe:
+            httpGet: { path: /health/live, port: 80 }
+            periodSeconds: 10
+          livenessProbe:
+            httpGet: { path: /health/live, port: 80 }
+            initialDelaySeconds: 10
+            periodSeconds: 20
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: krizovka-client
+spec:
+  selector: { app: krizovka-client }
+  ports:
+    - port: 80
+      targetPort: 80

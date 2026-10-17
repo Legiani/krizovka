@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\Krizovka.Users.Domain\Krizovka.Users.Domain.csproj" />
+    <ProjectReference Include="..\..\..\..\Shared\Common\Krizovka.Shared.Authentication\Krizovka.Shared.Authentication.csproj" />
+    <ProjectReference Include="..\..\..\..\Shared\Common\Krizovka.Shared.ErrorHandling\Krizovka.Shared.ErrorHandling.csproj" />
+    <ProjectReference Include="..\..\..\..\Shared\Core\Krizovka.Shared.Events.Core\Krizovka.Shared.Events.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.1.0" />
+    <PackageReference Include="FluentValidation" Version="12.1.1" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
+    <PackageReference Include="MassTransit.Abstractions" Version="8.5.7" />
+    <PackageReference Include="MediatR" Version="14.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="10.0.5" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.16.0" />
+  </ItemGroup>
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,12 @@
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const directory = path.dirname(fileURLToPath(import.meta.url));
+
+const config = {
+  output: 'standalone',
+  outputFileTracingRoot: path.join(directory, '../..'),
+  poweredByHeader: false,
+};
+
+export default config;

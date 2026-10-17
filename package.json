@@ -1,0 +1,12 @@
+{
+  "name": "krizovka",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": ["apps/admin"],
+  "scripts": {
+    "dev:admin": "npm run dev --workspace @krizovka/admin",
+    "build:admin": "npm run build --workspace @krizovka/admin",
+    "check:admin": "npm run check --workspace @krizovka/admin"
+  },
+  "engines": { "node": ">=22 <23" }
+}

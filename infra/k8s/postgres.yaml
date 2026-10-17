@@ -1,0 +1,92 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-init
+data:
+  01-databases.sh: |
+    #!/bin/sh
+    set -eu
+    psql --username "$POSTGRES_USER" --dbname postgres --set ON_ERROR_STOP=1 \
+      --set api_password="$API_DB_PASSWORD" --set users_password="$USERS_DB_PASSWORD" <<'SQL'
+    CREATE ROLE krizovka_api LOGIN PASSWORD :'api_password';
+    CREATE ROLE krizovka_users LOGIN PASSWORD :'users_password';
+    CREATE DATABASE krizovka OWNER krizovka_api;
+    CREATE DATABASE krizovka_users OWNER krizovka_users;
+    REVOKE ALL ON DATABASE krizovka FROM PUBLIC;
+    REVOKE ALL ON DATABASE krizovka_users FROM PUBLIC;
+    SQL
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: krizovka-postgres
+spec:
+  selector:
+    app: krizovka-postgres
+  ports:
+    - port: 5432
+      targetPort: 5432
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: krizovka-postgres
+spec:
+  serviceName: krizovka-postgres
+  replicas: 1
+  selector:
+    matchLabels:
+      app: krizovka-postgres
+  template:
+    metadata:
+      labels:
+        app: krizovka-postgres
+    spec:
+      terminationGracePeriodSeconds: 30
+      containers:
+        - name: postgres
+          image: postgres:16-alpine
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_USER
+              value: postgres
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
+          envFrom:
+            - secretRef:
+                name: postgres-credentials
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: "1"
+              memory: 768Mi
+          startupProbe:
+            exec:
+              command: [sh, -c, "pg_isready -h 127.0.0.1 -U postgres"]
+            periodSeconds: 5
+            failureThreshold: 60
+          readinessProbe:
+            exec:
+              command: [sh, -c, "pg_isready -h 127.0.0.1 -U postgres"]
+            periodSeconds: 5
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/postgresql/data
+            - name: init
+              mountPath: /docker-entrypoint-initdb.d
+      volumes:
+        - name: init
+          configMap:
+            name: postgres-init
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+      spec:
+        accessModes: [ReadWriteOnce]
+        storageClassName: standard
+        resources:
+          requests:
+            storage: 4Gi

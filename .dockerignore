@@ -1,0 +1,15 @@
+.git
+.local
+**/._*
+**/node_modules
+**/.next
+**/bin
+**/obj
+**/.dart_tool
+**/.fvm
+**/Pods
+**/coverage
+.env
+.env.*
+**/.env
+**/.env.*

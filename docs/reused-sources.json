@@ -1,0 +1,1748 @@
+{
+  "description": "Source hashes before Krizovka adaptations. No source configuration, credentials, logs, databases or seed packs were imported.",
+  "files": [
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Api/Mesto.Plus.US.Api.csproj",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Api/Krizovka.Users.Api.csproj",
+      "sha256": "d0a1c165208ddb6d1cc34ad1931630eae12230ff7af4986c8d0abcb4c3b7c2c5",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Api/Program.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Api/Program.cs",
+      "sha256": "5f703deb782e8f6fefabd5fc901415c495450055cfaa4af9e86a242bd85678cd",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Api/Controllers/Core/RelationshipsController.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Api/Controllers/Core/RelationshipsController.cs",
+      "sha256": "f744b3721f70809c87a358b44f029793fbc622a4ac5da72367e19f27c6f35004",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Api/Controllers/Core/IdentitiesController.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Api/Controllers/Core/IdentitiesController.cs",
+      "sha256": "56fd35349d1276a2c8f34a44754c2b45cb703bca968228d7bb6bf5cc90e30aef",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Api/Controllers/Core/ContextController.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Api/Controllers/Core/ContextController.cs",
+      "sha256": "54376c7d151f0c0367a3dab094922443ae3a68bce5f58ecc5e5f33eab47b9338",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Api/Controllers/Core/WebhooksController.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Api/Controllers/Core/WebhooksController.cs",
+      "sha256": "3c071d6a80be3c374b5c0cf6f4844930c0d19ce7a61f8d06c309e1a55f7f8f2b",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Api/Controllers/Core/BackofficeAuthController.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Api/Controllers/Core/BackofficeAuthController.cs",
+      "sha256": "536ecb6e9e0a18214358c88f2cb2829e4c38155468fc8b396571b21ebf9fbe51",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Api/Controllers/Core/UserPreferencesController.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Api/Controllers/Core/UserPreferencesController.cs",
+      "sha256": "17977923a8895ae826e8f65174852e2d44221932ff3ceaecc30953050df5a4ed",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Api/Controllers/Core/SearchController.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Api/Controllers/Core/SearchController.cs",
+      "sha256": "24a15f1f667e3e21729c6ad524cf733fbe828c9f54a260f7d7cc5bb719bf2515",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Api/Controllers/Core/RolesController.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Api/Controllers/Core/RolesController.cs",
+      "sha256": "d071555411ea1e710c4956cacef4077fc48a55ffabbe0ad0ed598a1f80fd7b0b",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Api/Controllers/Core/BackofficeRolesController.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Api/Controllers/Core/BackofficeRolesController.cs",
+      "sha256": "db60d7daaacd54c0cc75bfb7b60d83a1e8c7af380c103b732f9e209b9af7d751",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Api/Controllers/Core/AdminUsersController.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Api/Controllers/Core/AdminUsersController.cs",
+      "sha256": "ef436771bca1b41a52e7154b463a3198fb64046510876f93827c0fc56f038d0b",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Api/Controllers/Core/ClaimsController.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Api/Controllers/Core/ClaimsController.cs",
+      "sha256": "bee62b27efed47635fdf2c5e3c512e2a696afde7b035c7721df30d89fe1dbb4e",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Api/Controllers/Core/BackofficeUsersController.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Api/Controllers/Core/BackofficeUsersController.cs",
+      "sha256": "fb6e8019ee698e9012fabc97213343fcfea05118a198b64c6f5513e13f329837",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application.csproj",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application.csproj",
+      "sha256": "be19d2a178546afbc1658f3347cdcae56f4a87f7607b3155a69fadf5e14e2880",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/DependencyInjection.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/DependencyInjection.cs",
+      "sha256": "60a24043c7b7a25fad191d29f6a1f45659b54f7ce1f7e4a50d9b6cf2bb2eb0de",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Class1.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Class1.cs",
+      "sha256": "0a7f3f9b8112abcbb4c2cb080d193cf80f565917b9521ae95aa469d4d9a369ab",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Claims/Commands/CompleteClaim/CompleteAccountClaimCommand.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Claims/Commands/CompleteClaim/CompleteAccountClaimCommand.cs",
+      "sha256": "031b52cd4874882452ae6d4d73aa0fcc7fe60644a97944509d4c4651715d564a",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Claims/Commands/CompleteClaim/CompleteAccountClaimCommandHandler.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Claims/Commands/CompleteClaim/CompleteAccountClaimCommandHandler.cs",
+      "sha256": "5bf7d81de346d75c08b83bd89b7665f24c091edebf6858038aa25bc53ad99b4e",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Claims/Commands/CreateClaim/CreateAccountClaimCommandHandler.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Claims/Commands/CreateClaim/CreateAccountClaimCommandHandler.cs",
+      "sha256": "16e94b48107058eafaa083593e2f77f888e98eaf4162942d39a320f4cef7d346",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Claims/Commands/CreateClaim/CreateAccountClaimCommand.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Claims/Commands/CreateClaim/CreateAccountClaimCommand.cs",
+      "sha256": "6a27484d33f3c742c6ea7af93beebc03fa64fd11bca0a93f500b2388ba4cfae5",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Claims/Commands/CancelClaim/CancelAccountClaimCommand.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Claims/Commands/CancelClaim/CancelAccountClaimCommand.cs",
+      "sha256": "65946591371be832d78c7e94d2a35556c88f8ce64ee142c9b8762753cfe6108a",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Claims/Queries/GetClaim/GetAccountClaimQuery.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Claims/Queries/GetClaim/GetAccountClaimQuery.cs",
+      "sha256": "91c6a4c62d56c92159fa3c4d022c618d938105d61545ad42952fadd63ba886b5",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Claims/Queries/GetClaim/GetAccountClaimQueryHandler.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Claims/Queries/GetClaim/GetAccountClaimQueryHandler.cs",
+      "sha256": "1e836c71acf88b87710bc661e9411e3caa87a438d1920118306613dec323896f",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Interfaces/Persistence/IBackofficeUserRepository.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Interfaces/Persistence/IBackofficeUserRepository.cs",
+      "sha256": "30d9d1eec8afa4d7a3bc6f1a1a7471a35c573243b34ee8e4a5b830e8d9bc057f",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Interfaces/Persistence/IBackofficeRoleRepository.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Interfaces/Persistence/IBackofficeRoleRepository.cs",
+      "sha256": "c7de40970cad07d0eeadfa77e58c6eb4fe14f0c53d8d28bf2e2343ce1df5f47b",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Interfaces/Persistence/IUserAccountRepository.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Interfaces/Persistence/IUserAccountRepository.cs",
+      "sha256": "3e7170f013f713000d1b7473cf886056634055910477b1e1b128fe43a4ae2d6b",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Interfaces/Persistence/IRelationshipRepository.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Interfaces/Persistence/IRelationshipRepository.cs",
+      "sha256": "1920f7e0a2bde57a6e7438701a45a28d6ed9493013ff83518d4ed2777c91450f",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Interfaces/Persistence/IAccountClaimRepository.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Interfaces/Persistence/IAccountClaimRepository.cs",
+      "sha256": "1c6a03118d7cff15fc4c30c3cb40cfada0e12b48258da99d10e939228bb69d19",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Interfaces/Persistence/IRoleAssignmentRepository.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Interfaces/Persistence/IRoleAssignmentRepository.cs",
+      "sha256": "a1f43f6a18051c1e1e0e0da78a4a2ba3bb22789d71d034ce7365ff9c82e204d7",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Interfaces/Authentication/IBackofficeTokenService.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Interfaces/Authentication/IBackofficeTokenService.cs",
+      "sha256": "bb57aafb9e53891e7e9c99ff9a7b69bf08880f5677ffefc01221129f80082375",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Interfaces/Services/IClaimPolicyService.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Interfaces/Services/IClaimPolicyService.cs",
+      "sha256": "9142f56c24d8e5ee4350ad443e3074069fd5841aafe1f18610d82beb96caf6d1",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Interfaces/Services/IRoleCatalogService.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Interfaces/Services/IRoleCatalogService.cs",
+      "sha256": "db2da0006640f4094480b8af82cf0b3baf183ca929ad8317bac60dd2d49abd9c",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Interfaces/Services/IKratosIdentityService.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Interfaces/Services/IKratosIdentityService.cs",
+      "sha256": "c788abf2401edf8e552c832331cff3792b42703c2f9a6127dcecd43f31c224b1",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Interfaces/Services/Models/KratosIdentityDto.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Interfaces/Services/Models/KratosIdentityDto.cs",
+      "sha256": "0876f45d940eaf1d317fb11f798e155a52afc723b5ace336904d43842a1aef21",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Relationships/Commands/DeleteRelationship/DeleteRelationshipCommand.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Relationships/Commands/DeleteRelationship/DeleteRelationshipCommand.cs",
+      "sha256": "98eb45e082d8cca7e2a94672d6ceb6ee8c5b94341476113f91af53d319ddb421",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Relationships/Commands/CreateRelationship/CreateRelationshipCommand.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Relationships/Commands/CreateRelationship/CreateRelationshipCommand.cs",
+      "sha256": "1c363136b1dd02d2ede5c2b1c9b76794b5cb5cb71ed210974f501c1d317ec8b6",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Relationships/Commands/CreateRelationship/CreateRelationshipCommandHandler.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Relationships/Commands/CreateRelationship/CreateRelationshipCommandHandler.cs",
+      "sha256": "ba1ccdd1f8d705778c38df16088a2d599a4fe01348f570b122272f6f906e4bb2",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Relationships/Queries/GetRelationships/GetRelationshipsQuery.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Relationships/Queries/GetRelationships/GetRelationshipsQuery.cs",
+      "sha256": "d7bff0a6c0d46c7a0a6736ff72d01f77493b6ebe20e1a5bd2bd560a5e2e0393f",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Relationships/Queries/GetRelationships/GetRelationshipsQueryHandler.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Relationships/Queries/GetRelationships/GetRelationshipsQueryHandler.cs",
+      "sha256": "94d7326a0d62d08a962ff9faadaabeb6dc8ea813098f729db86ef8012f6029e7",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Identities/Commands/UpdateIdentity/UpdateIdentityCommandHandler.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Identities/Commands/UpdateIdentity/UpdateIdentityCommandHandler.cs",
+      "sha256": "e9da12e847392a4ce7e55f2ada9165afe6cfbff9af2c8cb8f3a2c38416a7c06d",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Identities/Commands/UpdateIdentity/UpdateIdentityCommand.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Identities/Commands/UpdateIdentity/UpdateIdentityCommand.cs",
+      "sha256": "b1a309ec0246ff6024de439164bacefb76b9faea16a0e66d269d1e971fd9a6a0",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Identities/Commands/CreateAccountFromIdentity/CreateAccountFromIdentityCommandHandler.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Identities/Commands/CreateAccountFromIdentity/CreateAccountFromIdentityCommandHandler.cs",
+      "sha256": "ddf3ff1e820345a708cc2dcd5703f15543795e97918ee8d64446fda1c671a713",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Identities/Commands/CreateAccountFromIdentity/CreateAccountFromIdentityCommand.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Identities/Commands/CreateAccountFromIdentity/CreateAccountFromIdentityCommand.cs",
+      "sha256": "ca459fafae6ea3cbad7f9048050fbccd442cbad9c98c4d2399c24aa71e60bf04",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Identities/Commands/LinkIdentity/LinkIdentityCommandHandler.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Identities/Commands/LinkIdentity/LinkIdentityCommandHandler.cs",
+      "sha256": "5684411bd40af43516025a25b9c4d5cc04f9e3d7c76053ee72086d0185883023",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Identities/Commands/LinkIdentity/LinkIdentityCommand.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Identities/Commands/LinkIdentity/LinkIdentityCommand.cs",
+      "sha256": "cc23e2d5eca30272062661b52255757a09e4487fc3d8bb2bbcaae139880d26b0",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Search/DTOs/AccountSearchResult.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Search/DTOs/AccountSearchResult.cs",
+      "sha256": "b38bd1a9747f147980a6f5bc679b7a40828d885bea1f1579433edd99034b6b66",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Search/Queries/SearchAccounts/SearchAccountsQueryHandler.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Search/Queries/SearchAccounts/SearchAccountsQueryHandler.cs",
+      "sha256": "95f38064b2cafcd34f52ccc09b3a3120035e3a95427b5f502c01b098f83e4167",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Search/Queries/SearchAccounts/SearchAccountsQuery.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Search/Queries/SearchAccounts/SearchAccountsQuery.cs",
+      "sha256": "aab93c00c53fbdf372576d9c2c85624ed42b117aa05e4f8b64efa775696ed065",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Backoffice/Commands/CreateRole/CreateRoleCommand.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Backoffice/Commands/CreateRole/CreateRoleCommand.cs",
+      "sha256": "6ae3b60fc484cda8b69d14d3d9b42fcaeb8adea1377e501dd57565cf845cf33a",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Backoffice/Commands/CreateRole/CreateRoleCommandHandler.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Backoffice/Commands/CreateRole/CreateRoleCommandHandler.cs",
+      "sha256": "2a1c9b449e5040e0a87c48169d9683a0afa791de078f821685328fe7a203f2d1",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Backoffice/Commands/ResetBackofficeUserPassword/ResetBackofficeUserPasswordCommand.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Backoffice/Commands/ResetBackofficeUserPassword/ResetBackofficeUserPasswordCommand.cs",
+      "sha256": "80d1f82e7bd593846ce15eaea7b9ec874d1663b4c5567dead411603ba9889142",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Backoffice/Commands/ResetBackofficeUserPassword/ResetBackofficeUserPasswordHandler.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Backoffice/Commands/ResetBackofficeUserPassword/ResetBackofficeUserPasswordHandler.cs",
+      "sha256": "7349f0c83ee8f0b3ec473c9f3d0c9893155ecb4e31418e42eb49e935acf09a29",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Backoffice/Commands/AddPermissionToRole/AddPermissionToRoleCommand.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Backoffice/Commands/AddPermissionToRole/AddPermissionToRoleCommand.cs",
+      "sha256": "586b20e7717c2174717528fd2421bc57dea798e0b24a29f1dc0974e30e35c90b",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Backoffice/Commands/AddPermissionToRole/AddPermissionToRoleCommandHandler.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Backoffice/Commands/AddPermissionToRole/AddPermissionToRoleCommandHandler.cs",
+      "sha256": "647fd5647003390d110f1efa95304aa31a619d3464f28ab800243c804e1a3cfa",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Backoffice/Commands/UpdateBackofficeUser/UpdateBackofficeUserCommand.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Backoffice/Commands/UpdateBackofficeUser/UpdateBackofficeUserCommand.cs",
+      "sha256": "c325d5574fbd03e2b79fe17de9b34a95c676ee2c7e555d65d70a487f723cc7d2",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Backoffice/Commands/UpdateBackofficeUser/UpdateBackofficeUserHandler.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Backoffice/Commands/UpdateBackofficeUser/UpdateBackofficeUserHandler.cs",
+      "sha256": "3ed3fd6384525f5d439c4b6b4fa587edcf81961dc51b2f49c145cdbb65b04eb9",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Backoffice/Commands/SeedAdmin/SeedAdminCommand.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Backoffice/Commands/SeedAdmin/SeedAdminCommand.cs",
+      "sha256": "958e61c7b79a4c36d525e1c808b61c6625b2f66e0c528ac2fbccaf9d36b5fc56",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd",
+      "status": "Removed during adaptation: source demo bootstrap, incomplete legacy migrations or unused OpenAPI integration."
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Backoffice/Commands/SeedAdmin/SeedAdminCommandHandler.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Backoffice/Commands/SeedAdmin/SeedAdminCommandHandler.cs",
+      "sha256": "cb38d09e08969b454043a8db53fa637968c2bc0e661bec7532eb034de4b2e07f",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd",
+      "status": "Removed during adaptation: source demo bootstrap, incomplete legacy migrations or unused OpenAPI integration."
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Backoffice/Commands/RemovePermission/RemovePermissionCommandHandler.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Backoffice/Commands/RemovePermission/RemovePermissionCommandHandler.cs",
+      "sha256": "7e703541571be606a4c704db85d803881c5ac54f535141e1688bb1eedb5c6ec4",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Backoffice/Commands/RemovePermission/RemovePermissionCommand.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Backoffice/Commands/RemovePermission/RemovePermissionCommand.cs",
+      "sha256": "bad8c5dc1a2d1fc3ff9972b321aced6502939602829f1d767c0f5cc1cebef3bc",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Backoffice/Commands/CreateBackofficeUser/CreateBackofficeUserCommand.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Backoffice/Commands/CreateBackofficeUser/CreateBackofficeUserCommand.cs",
+      "sha256": "1ba750b1ed8dbc9fa930fb42ff7a0f3abc807f8987db203c0613a126bac92ea4",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Backoffice/Commands/CreateBackofficeUser/CreateBackofficeUserHandler.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Backoffice/Commands/CreateBackofficeUser/CreateBackofficeUserHandler.cs",
+      "sha256": "028cd4944285d87a6d567ce9a4d3130876dc4c58ddf8770e7583d4010b6925ab",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Backoffice/Commands/DeleteBackofficeUser/DeleteBackofficeUserHandler.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Backoffice/Commands/DeleteBackofficeUser/DeleteBackofficeUserHandler.cs",
+      "sha256": "fa04a65f68b76df0d3663fb3963d48af80d28f56be2fd9e4d09414388bc5324c",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Backoffice/Commands/DeleteBackofficeUser/DeleteBackofficeUserCommand.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Backoffice/Commands/DeleteBackofficeUser/DeleteBackofficeUserCommand.cs",
+      "sha256": "26fb452591c51c6a60569cfd392991c205aa4a77e0d29e9ce8629a2859d8b389",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Backoffice/Commands/DeleteRole/DeleteRoleCommandHandler.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Backoffice/Commands/DeleteRole/DeleteRoleCommandHandler.cs",
+      "sha256": "d976a7589c94283882317fb68e841995032af180ba238d7b7b2ea653df2cab23",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Backoffice/Commands/DeleteRole/DeleteRoleCommand.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Backoffice/Commands/DeleteRole/DeleteRoleCommand.cs",
+      "sha256": "9be830759a4c191e35c94e5f65cd841bce03158334e2bbef726e55a691ea471c",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Backoffice/Commands/Login/BackofficeLoginCommandValidator.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Backoffice/Commands/Login/BackofficeLoginCommandValidator.cs",
+      "sha256": "62422537dd3478e99ab6e8781eacfa7677384f650b6568ba8c5de5d8ebcb2188",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Backoffice/Commands/Login/BackofficeLoginCommand.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Backoffice/Commands/Login/BackofficeLoginCommand.cs",
+      "sha256": "815942b7b5b9b3a524b3be3bde61f093a152f8b9edb3ee21139e3376d470c04b",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Backoffice/Commands/Login/BackofficeLoginCommandHandler.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Backoffice/Commands/Login/BackofficeLoginCommandHandler.cs",
+      "sha256": "ca9f3730bb5321a13035697ea274753bc501140bcd0c60cc7afec37b3244984a",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Backoffice/Queries/GetRoleUsers/GetRoleUsersQuery.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Backoffice/Queries/GetRoleUsers/GetRoleUsersQuery.cs",
+      "sha256": "19ab4a3eb4b3ee11f9fd1bb1a8868c075eab61e66a610a878cf4d96a6500af3a",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Backoffice/Queries/CheckPermission/CheckPermissionQuery.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Backoffice/Queries/CheckPermission/CheckPermissionQuery.cs",
+      "sha256": "a092f7de2b93d79066ba89c62800ca0259f0eddfd113c9052edd33430db7a819",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Backoffice/Queries/CheckPermission/CheckPermissionQueryHandler.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Backoffice/Queries/CheckPermission/CheckPermissionQueryHandler.cs",
+      "sha256": "c94a96c13f8583c050c28634d22fe637d917bbb1f2c32cb97a1a5079bcc44914",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Backoffice/Queries/GetCurrentUser/GetCurrentUserQuery.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Backoffice/Queries/GetCurrentUser/GetCurrentUserQuery.cs",
+      "sha256": "e1d0032f2cf8eb5b174e1141fb01e7871701dfdab6fb80e9253e708204259e2d",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Backoffice/Queries/GetCurrentUser/GetCurrentUserQueryHandler.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Backoffice/Queries/GetCurrentUser/GetCurrentUserQueryHandler.cs",
+      "sha256": "9ca22353a86ec80da00ec2fb6b20aff364b75ce185999dd9d467f31b5726354f",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Backoffice/Queries/GetBackofficeUser/GetBackofficeUserQuery.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Backoffice/Queries/GetBackofficeUser/GetBackofficeUserQuery.cs",
+      "sha256": "f558490157e71ed46a86f4d9583bea8915e25fcf06b09bbb0b7a51fbd2b594f7",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Backoffice/Queries/GetBackofficeUser/GetBackofficeUserHandler.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Backoffice/Queries/GetBackofficeUser/GetBackofficeUserHandler.cs",
+      "sha256": "fbef8942da1d6b1d91e6688df652ed3661987a653b150111c1d00305ddd694bc",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Backoffice/Queries/GetRoles/GetRolesQueryHandler.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Backoffice/Queries/GetRoles/GetRolesQueryHandler.cs",
+      "sha256": "7a8f4c5fc598c69787d923248b47a2e334e916663c8e6d8111031024bbbb3c5a",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Backoffice/Queries/GetRoles/GetRolesQuery.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Backoffice/Queries/GetRoles/GetRolesQuery.cs",
+      "sha256": "bd03305e6d039e38a46a87eb7ef061556aa84ddaf66e246b947c9b41498256df",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Backoffice/Queries/GetAccessibleSystems/GetAccessibleSystemsQueryHandler.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Backoffice/Queries/GetAccessibleSystems/GetAccessibleSystemsQueryHandler.cs",
+      "sha256": "4528621ac8107aac6d7da1c687c8095839c5c6f73f2ef54f2c86e347b2995ce5",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Backoffice/Queries/GetAccessibleSystems/GetAccessibleSystemsQuery.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Backoffice/Queries/GetAccessibleSystems/GetAccessibleSystemsQuery.cs",
+      "sha256": "f1d3bfdfb35c82475f2a8503f5d396d37324947560514187ed9cd8170323db14",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Backoffice/Queries/ListUsers/ListBackofficeUsersHandler.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Backoffice/Queries/ListUsers/ListBackofficeUsersHandler.cs",
+      "sha256": "fe68b7193da408503576f5bf17d454870c71cc606ca94650b893926332587599",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Backoffice/Queries/ListUsers/ListBackofficeUsersQuery.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Backoffice/Queries/ListUsers/ListBackofficeUsersQuery.cs",
+      "sha256": "55c819f42a8bae82bb266c0f2a77fd6155def269e0d4d8c785f01eae0d49822f",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Roles/Commands/AssignRole/AssignRoleCommandHandler.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Roles/Commands/AssignRole/AssignRoleCommandHandler.cs",
+      "sha256": "074c081a465743de89b75854a42a9160c4e708c082ab0251238a52ec5ed6d64f",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Roles/Commands/AssignRole/AssignRoleCommand.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Roles/Commands/AssignRole/AssignRoleCommand.cs",
+      "sha256": "eb8dd86c87aa6fd89a67c3107aa2f4068db88d61f9d5cd06ab450ded3b5ac79b",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Roles/Commands/RevokeRole/RevokeRoleCommand.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Roles/Commands/RevokeRole/RevokeRoleCommand.cs",
+      "sha256": "b4f79bb52623668c6ff5badcc2e4b260664db002450cbc7c88296d6808685b4f",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Roles/Queries/GetSystemRoles/GetSystemRolesQuery.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Roles/Queries/GetSystemRoles/GetSystemRolesQuery.cs",
+      "sha256": "10d9b6d8d8f51a4a51271a4c0b0435b9519b476a6a94838c258701c3d4047206",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Roles/Queries/GetSystemRoles/GetSystemRolesQueryHandler.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Roles/Queries/GetSystemRoles/GetSystemRolesQueryHandler.cs",
+      "sha256": "2321aa2d1228d82ddf13a5afcfe1b09d4b12cc31f52d9a1bdde1c52fa03dd7b8",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Roles/Queries/GetRoleAssignments/GetRoleAssignmentsQueryHandler.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Roles/Queries/GetRoleAssignments/GetRoleAssignmentsQueryHandler.cs",
+      "sha256": "694e2b310ecea265392c0c6acef83299500b7ab87c975c853a0cbd0ab1d776a7",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Roles/Queries/GetRoleAssignments/GetRoleAssignmentsQuery.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Roles/Queries/GetRoleAssignments/GetRoleAssignmentsQuery.cs",
+      "sha256": "b67ba1c25ac039889b322ed88e1cd79d9635cedfb3c46acbb194e0fc2912af93",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Roles/Queries/GetRoleCatalog/GetRoleCatalogQuery.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Roles/Queries/GetRoleCatalog/GetRoleCatalogQuery.cs",
+      "sha256": "251f881a9f1e32c59796e343cdc18bbf9215b8875f45e1988e06a1ce9ad696f1",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Roles/Queries/GetRoleCatalog/GetRoleCatalogQueryHandler.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Roles/Queries/GetRoleCatalog/GetRoleCatalogQueryHandler.cs",
+      "sha256": "2bf9ce7ae12bcf81950f18b9a97defa0bd465d05ba42e075feadaa453d7be366",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Admin/Queries/SearchUsers/SearchUsersQueryHandler.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Admin/Queries/SearchUsers/SearchUsersQueryHandler.cs",
+      "sha256": "12e16f04d4dd3e36c2b879d61ef1f5b8cce4d09a2b1b1d22948fc6412cb4af09",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Admin/Queries/SearchUsers/SearchUsersQuery.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Admin/Queries/SearchUsers/SearchUsersQuery.cs",
+      "sha256": "6db6f5def9fe3c78b25a66ab7502b7ec053fd52a7c097d02a51e1f7f493c5f61",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Admin/Queries/GetUsersByIds/GetUsersByIdsQuery.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Admin/Queries/GetUsersByIds/GetUsersByIdsQuery.cs",
+      "sha256": "c893c608216ace3203c082b5799380922ad89b40ec641060d109cec98339abe7",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Admin/Queries/GetUsersByIds/GetUsersByIdsQueryHandler.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Admin/Queries/GetUsersByIds/GetUsersByIdsQueryHandler.cs",
+      "sha256": "60ced9784742ea31338d1c8dc3cd90064e81bf24295ef60914209aa9ca6f273f",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Context/DTOs/ContextValidationResult.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Context/DTOs/ContextValidationResult.cs",
+      "sha256": "8f4d26842ad01c64a082ce392898e85d010b1901152eab28a08d49a17d5f7f8b",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Context/Queries/ValidateContext/ValidateContextQuery.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Context/Queries/ValidateContext/ValidateContextQuery.cs",
+      "sha256": "02403d7c0093a04815c434fa69c448c2d517265afb5884b326d7ee33f6835986",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Context/Queries/ValidateContext/ValidateContextQueryHandler.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Context/Queries/ValidateContext/ValidateContextQueryHandler.cs",
+      "sha256": "a189499606e0e9786e64efce859c53418a413cd39e5d8286c6a3786e89d2e83a",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Context/Queries/ValidateContext/ValidateTokenQueryHandler.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Context/Queries/ValidateContext/ValidateTokenQueryHandler.cs",
+      "sha256": "e78b708891eca4380806142daa0304f023a475889fdea18a2f700cdac8588086",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Context/Queries/ValidateContext/ValidateTokenQuery.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Context/Queries/ValidateContext/ValidateTokenQuery.cs",
+      "sha256": "ce3262ea54cb28aa0a3c3ed6d093f60859afe12d13ab8db49c70822d4f05a983",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Application/Mesto.Plus.US.Application/Core/Context/Queries/BatchValidateContext/BatchValidateContextQuery.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Application/Krizovka.Users.Application/Core/Context/Queries/BatchValidateContext/BatchValidateContextQuery.cs",
+      "sha256": "f9d1eeed05575a1691ff606e6dc38c5f2e09bebe6d9e713dd626cd40554395dc",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Domain/Mesto.Plus.US.Domain.csproj",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Domain/Krizovka.Users.Domain.csproj",
+      "sha256": "5766f1de67dda5b42e1d593377518d19734c295ec81b4cfb6d0b46e754e1fd27",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Domain/Mesto.Plus.US.Domain/Constants/RoleCodes.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Domain/Krizovka.Users.Domain/Constants/RoleCodes.cs",
+      "sha256": "dd52fc6965b1766dcb7cd60cf120803fb7ca92c06375ed4e1f90af27251de21f",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Domain/Mesto.Plus.US.Domain/Enums/AccountStatus.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Domain/Krizovka.Users.Domain/Enums/AccountStatus.cs",
+      "sha256": "e831c46a9a006f4e2daea07d9b0073018f90efb0e0c8b90c1b4b34ae32d0ab98",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Domain/Mesto.Plus.US.Domain/Enums/ScopeType.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Domain/Krizovka.Users.Domain/Enums/ScopeType.cs",
+      "sha256": "bba8a2d8c4e289d43a77ab067e3f41caa575d2f355c76ecc3f0f23bf21c303da",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Domain/Mesto.Plus.US.Domain/Enums/RelationType.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Domain/Krizovka.Users.Domain/Enums/RelationType.cs",
+      "sha256": "d2fb5d7e88390b7c88dcf1b7b2fe7a9d9237d070b9121abf7ac4da7e587d51c6",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Domain/Mesto.Plus.US.Domain/Enums/ClaimStatus.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Domain/Krizovka.Users.Domain/Enums/ClaimStatus.cs",
+      "sha256": "797eff160d45d6557625eb3652c3cb1a58dd4ca85d5436390d158ad4de40dd1f",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Domain/Mesto.Plus.US.Domain/Enums/AccountType.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Domain/Krizovka.Users.Domain/Enums/AccountType.cs",
+      "sha256": "1786c4d3a8363ca97173b82ff3f02283f8e7ff197f62c9f2526ade15c33b580b",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Domain/Mesto.Plus.US.Domain/Enums/VerificationStatus.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Domain/Krizovka.Users.Domain/Enums/VerificationStatus.cs",
+      "sha256": "cd754351cec9b8261394bc8e69516bf24efd05b23d74e60fe0edc45e65468078",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Domain/Mesto.Plus.US.Domain/Exceptions/ActingRequiredException.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Domain/Krizovka.Users.Domain/Exceptions/ActingRequiredException.cs",
+      "sha256": "08af118cf96169f3e74c1bc9a58b6890b06d3a2c985fa40b55c1fc586ff6178e",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Domain/Mesto.Plus.US.Domain/Exceptions/ActingNotAllowedException.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Domain/Krizovka.Users.Domain/Exceptions/ActingNotAllowedException.cs",
+      "sha256": "54106c909235f518795d9fefde6e3a0be5f0698595a5f997a1df00f53b9497bf",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Domain/Mesto.Plus.US.Domain/Events/UserEvents.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Domain/Krizovka.Users.Domain/Events/UserEvents.cs",
+      "sha256": "1768a18f9fb953983c83f37e9083cd8345078e99ee82ba9deb4e3e870cf87490",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Domain/Mesto.Plus.US.Domain/Entities/UserVerification.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Domain/Krizovka.Users.Domain/Entities/UserVerification.cs",
+      "sha256": "dc4c3c86a91aa31442bd3deb99dcecd485e7fd8fcac6b3bc696af2fe2efe8dd8",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Domain/Mesto.Plus.US.Domain/Entities/UserPreference.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Domain/Krizovka.Users.Domain/Entities/UserPreference.cs",
+      "sha256": "080b612a87e2fe55b4150b49b93408c58874cfbab5740a959de21105ce9fe2b6",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Domain/Mesto.Plus.US.Domain/Entities/Relationship.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Domain/Krizovka.Users.Domain/Entities/Relationship.cs",
+      "sha256": "d829667002c0b3127d25011cff5365f3029b22519c228cde102e1c0251c63e24",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Domain/Mesto.Plus.US.Domain/Entities/BackofficeUser.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Domain/Krizovka.Users.Domain/Entities/BackofficeUser.cs",
+      "sha256": "afbff9796e275c3c75a7964f57a7daa3a0ad1818b4ffd2126305570e1c54ddc3",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Domain/Mesto.Plus.US.Domain/Entities/AccountClaim.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Domain/Krizovka.Users.Domain/Entities/AccountClaim.cs",
+      "sha256": "4d1f3a14a64fa74940d651ccd902889b26b4ccecbc266ee2071c52d91afbbd88",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Domain/Mesto.Plus.US.Domain/Entities/BackofficeRole.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Domain/Krizovka.Users.Domain/Entities/BackofficeRole.cs",
+      "sha256": "c68c73d9bce4e91c83cf006712b50174c4c0e3ec5bff3b9c381465d1e3ca6aff",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Domain/Mesto.Plus.US.Domain/Entities/UserAccount.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Domain/Krizovka.Users.Domain/Entities/UserAccount.cs",
+      "sha256": "4d6f38d5a5845634121007dae2f00d2e9a606b13138cae9fc05de9dc093a8093",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Domain/Mesto.Plus.US.Domain/Entities/RoleAssignment.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Domain/Krizovka.Users.Domain/Entities/RoleAssignment.cs",
+      "sha256": "b1a2739447c5e0e0a34079b64c54d5b0347f704d637b8595a72d7b91eb1f2640",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Domain/Mesto.Plus.US.Domain/Entities/BackofficePermission.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Domain/Krizovka.Users.Domain/Entities/BackofficePermission.cs",
+      "sha256": "142e1a484df56ca3096bb2827adf9a841273093889693756c1512f3845ba8c45",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/DependencyInjection.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/DependencyInjection.cs",
+      "sha256": "3094d2ff20b9565b8f18fd8761262a4def1c104a55428384a16e1f67b8d347db",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/Mesto.Plus.US.Infrastructure.csproj",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/Krizovka.Users.Infrastructure.csproj",
+      "sha256": "718a3a615c6422a8e28ae62b6681f520867e8ceb5627116145ba3fb5d872acab",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/Migrations/UsDbContextModelSnapshot.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/Migrations/UsDbContextModelSnapshot.cs",
+      "sha256": "e25834f0c88ffd38e8d12e7fad9f6d0b572f05b5bb44893422f4a87f02da9739",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/Migrations/20260404225516_InitialCreate.Designer.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/Migrations/20260404225516_InitialCreate.Designer.cs",
+      "sha256": "908aa7fb12241b3a73ba3de35acb8355bd915031b814e069a9d343d78018b185",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd",
+      "status": "Removed during adaptation: source demo bootstrap, incomplete legacy migrations or unused OpenAPI integration."
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/Migrations/20260421194031_AddUserPreference.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/Migrations/20260421194031_AddUserPreference.cs",
+      "sha256": "9d0eb12936e736336516249985be087d2c6478d20b739e84dc4288175bcc0326",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd",
+      "status": "Removed during adaptation: source demo bootstrap, incomplete legacy migrations or unused OpenAPI integration."
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/Migrations/20260421194031_AddUserPreference.Designer.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/Migrations/20260421194031_AddUserPreference.Designer.cs",
+      "sha256": "bb9f6b395c74c86ecb6070639d86ade2cb2c82a541e28ac965eb4bb08a1dc0dd",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd",
+      "status": "Removed during adaptation: source demo bootstrap, incomplete legacy migrations or unused OpenAPI integration."
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/Migrations/20260404225516_InitialCreate.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/Migrations/20260404225516_InitialCreate.cs",
+      "sha256": "2a6ff5017ebc5e0ee043dfd2d96fc7b88160118e03f0fc463b6e34bdc6526a31",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd",
+      "status": "Removed during adaptation: source demo bootstrap, incomplete legacy migrations or unused OpenAPI integration."
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/Consumers/UserProfileUpdatedConsumer.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/Consumers/UserProfileUpdatedConsumer.cs",
+      "sha256": "2402e89540bf905c7955397e37b5e990a288ceaa267b4903f812959ea0c9da71",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/Persistence/UsDbContext.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/Persistence/UsDbContext.cs",
+      "sha256": "e1e6973fa786d07eede9687b90a5d1b834ce9148e62ebb982f6378f261046ec1",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/Authentication/BackofficeTokenService.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/Authentication/BackofficeTokenService.cs",
+      "sha256": "9e39e29d27623b075b2a8e51b83279feee7add9c562b6a1940476d591510346d",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/Authentication/InternalUsAuthClient.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/Authentication/InternalUsAuthClient.cs",
+      "sha256": "6833300d0fa5c3d7814ef8c251864a5a7de5799816c0071c394b1a665a0ee4b2",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/Services/KratosIdentityService.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/Services/KratosIdentityService.cs",
+      "sha256": "7250cff610c5ce0fb411a07fc8588377850f5a3ba42afcd2b98822b28ea8e014",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/Services/ClaimPolicyService.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/Services/ClaimPolicyService.cs",
+      "sha256": "8f7aac9a8c49f451c03cfbfae27d68c95bac8a6887fb6e1a6e3e0339fca56366",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/Services/NoOpPublishEndpoint.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/Services/NoOpPublishEndpoint.cs",
+      "sha256": "c93c0407a985cb18e16bd97d7fa8933f11c8cac24b7b6d3fc0c63831ae5774c3",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/Services/RoleCatalogService.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/Services/RoleCatalogService.cs",
+      "sha256": "e12cfafa0e1cafb84e80ff8ecca6e25ae7c73c2efaace499e47a003c116fff67",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/Services/BackofficePermissionChecker.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/Services/BackofficePermissionChecker.cs",
+      "sha256": "cd2c56c25bd8a3570618894ec540e35e5154943908cfccaceb9515a5dccf2210",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/Claims/Commands/CancelAccountClaimCommandHandler.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/Claims/Commands/CancelAccountClaimCommandHandler.cs",
+      "sha256": "2f67608f69838c8dd2ac3a544ce91008bfe5fecca5a7633f6b4d4166d27049b2",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/Relationships/Commands/DeleteRelationshipCommandHandler.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/Relationships/Commands/DeleteRelationshipCommandHandler.cs",
+      "sha256": "39e3548b68942034fb47a25f0d499609c99887cc7728253c53540ed63c424937",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/UserPreferences/Queries/GetUserPreferencesQuery.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/UserPreferences/Queries/GetUserPreferencesQuery.cs",
+      "sha256": "2a6b628f98229ab0ea8a0a6f35dcfbfc76cfd1501739d912217bf2ed6511434b",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/UserPreferences/DTOs/UserPreferenceDtos.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/UserPreferences/DTOs/UserPreferenceDtos.cs",
+      "sha256": "7bee1c8755c7e795bed2dfc80e31d451c6a558cc661fe0ba1ec834385dc01740",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/UserPreferences/Commands/UpsertUserPreferenceCommand.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/UserPreferences/Commands/UpsertUserPreferenceCommand.cs",
+      "sha256": "5d0b3d9daeb4b053bd96b7714e357643a3434bed619cba87274dd59a088d8155",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/UserPreferences/Commands/DeleteUserPreferenceCommand.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/UserPreferences/Commands/DeleteUserPreferenceCommand.cs",
+      "sha256": "88134c89ed00a490ebc2bd0f4862964e1578bb6c3e64012d4aba542fcbf768a0",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/Persistence/Configurations/BackofficeUserConfiguration.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/Persistence/Configurations/BackofficeUserConfiguration.cs",
+      "sha256": "1f3d3e8967e8b7e112143427388d133edbc4592a004e3aa7fa0871ececccd239",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/Persistence/Configurations/UserAccountConfiguration.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/Persistence/Configurations/UserAccountConfiguration.cs",
+      "sha256": "aa63de47074fff36f4e56f0da247f729fa92af4ccee092f005c9f9cf2d1b3fbb",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/Persistence/Configurations/BackofficeRoleConfiguration.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/Persistence/Configurations/BackofficeRoleConfiguration.cs",
+      "sha256": "f018abfcf79f85d1598c66552f6bb15bdd9fcab9447a29d8bd4c20649feb2c92",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/Persistence/Configurations/BackofficePermissionConfiguration.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/Persistence/Configurations/BackofficePermissionConfiguration.cs",
+      "sha256": "9917cafd06d8f181dda67d64ed937eb6d8d1c778f0fa786c12d64d200c65cc5b",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/Persistence/Configurations/UserVerificationConfiguration.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/Persistence/Configurations/UserVerificationConfiguration.cs",
+      "sha256": "2598cfb00379a88e5816cb4df251fae98e6ee65419eee1387649724e9c712381",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/Persistence/Configurations/RoleAssignmentConfiguration.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/Persistence/Configurations/RoleAssignmentConfiguration.cs",
+      "sha256": "9f200fd9e39f68c922044454d860b97ea1452903f0bcce0691681f1b9fc04d58",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/Persistence/Configurations/AccountClaimConfiguration.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/Persistence/Configurations/AccountClaimConfiguration.cs",
+      "sha256": "186c7400f5e82b9b366da0c89d21ac85599614b3604de3c3f6174c517cf2dc88",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/Persistence/Configurations/RelationshipConfiguration.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/Persistence/Configurations/RelationshipConfiguration.cs",
+      "sha256": "45f5ecc9df5d9a101248b909f2a2888119e9eae70231bd82d3196814d12e1e69",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/Persistence/Configurations/UserPreferenceConfiguration.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/Persistence/Configurations/UserPreferenceConfiguration.cs",
+      "sha256": "ddc1e97b7f05083aca0fb2c570cf4a36b40879253f93d9c3c490ccbb384d26eb",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/Persistence/Repositories/RelationshipRepository.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/Persistence/Repositories/RelationshipRepository.cs",
+      "sha256": "7090b89db13767823d8bf2ea4b5c504b9da0f1ed09771679b1c4258d59a09dd9",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/Persistence/Repositories/AccountClaimRepository.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/Persistence/Repositories/AccountClaimRepository.cs",
+      "sha256": "7b846b6aa32c8a4ed96bbaf0202296ca5b6cc5db0835c63f6f3f7b2e7eae404d",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/Persistence/Repositories/BackofficeRoleRepository.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/Persistence/Repositories/BackofficeRoleRepository.cs",
+      "sha256": "17f1f2fc05007f130f5accc2e89bdad223765207c3ae88ef6df831edeea9b98c",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/Persistence/Repositories/BackofficeUserRepository.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/Persistence/Repositories/BackofficeUserRepository.cs",
+      "sha256": "1730741d755d8f9a22fd2004aa99eef373fb2a4398c4ef63dab6b3bf98b3451f",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/Persistence/Repositories/UserAccountRepository.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/Persistence/Repositories/UserAccountRepository.cs",
+      "sha256": "d972328c7449c39458b636fa4779434c87a8613bcd6a651ef8264d834ce56ef8",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/Persistence/Repositories/RoleAssignmentRepository.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/Persistence/Repositories/RoleAssignmentRepository.cs",
+      "sha256": "ea00690d7d44f55f36e75adf3ad6f233408b04bef6987a06d75a10fe46b63455",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/Roles/Commands/RevokeRoleCommandHandler.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/Roles/Commands/RevokeRoleCommandHandler.cs",
+      "sha256": "38396d75b8a9d79ced4cc7f682312e7484ff6be627ed71c96d7cbe92123b69b7",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/Verifications/Queries/GetVerificationsQuery.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/Verifications/Queries/GetVerificationsQuery.cs",
+      "sha256": "7c13cdc5fe9e06915a2f4e9cb59fc1f7b0a128807330633a48cf9af13b90f242",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/Verifications/DTOs/VerificationDtos.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/Verifications/DTOs/VerificationDtos.cs",
+      "sha256": "558621303ef05cfd441cb148f6f8053b1f58b3415affd7b704db1caa7ddd5958",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/US/src/Mesto.Plus.US.Infrastructure/Verifications/Commands/UpdateVerificationCommand.cs",
+      "target": "backend/recycled/src/Services/US/src/Krizovka.Users.Infrastructure/Verifications/Commands/UpdateVerificationCommand.cs",
+      "sha256": "37c0a429ae3fd430866cda5c9e15ab886a5c7e84985cd8df02e28d388bff3a5d",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.ApiClient/Mesto.Plus.Shared.ApiClient.csproj",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.ApiClient/Krizovka.Shared.ApiClient.csproj",
+      "sha256": "81652188e86cca1b6f266499454045becb15b71f0fa4e6e653cc3a90c104a72d",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.ApiClient/Extensions/ServiceHttpClientExtensions.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.ApiClient/Extensions/ServiceHttpClientExtensions.cs",
+      "sha256": "ce1b5fc3b2228a5189182e11dd4cc1fad63cffea2c02404bb859c0858d492c86",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.ApiClient/Mesto.Plus.Shared.ApiClient/Configuration/ApiClientOptions.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.ApiClient/Krizovka.Shared.ApiClient/Configuration/ApiClientOptions.cs",
+      "sha256": "f70f04a698ba06e8bd2760ec36160b60ee0f3e3d19a4e5caab66774dd416c278",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.ApiClient/Mesto.Plus.Shared.ApiClient/Extensions/ApiClientExtensions.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.ApiClient/Krizovka.Shared.ApiClient/Extensions/ApiClientExtensions.cs",
+      "sha256": "5e0a330e0ff16aa26261731c3087354eb76aa543118b3367664d4c8800a366a0",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.ApiClient/Mesto.Plus.Shared.ApiClient/Handlers/AuthHeaderForwardingHandler.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.ApiClient/Krizovka.Shared.ApiClient/Handlers/AuthHeaderForwardingHandler.cs",
+      "sha256": "e6389e5cdfcb89604b22dd71d5750afaaaaf28177340d7e667fa8b9430a25979",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.ApiClient/Mesto.Plus.Shared.ApiClient/Handlers/InternalApiKeyHandler.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.ApiClient/Krizovka.Shared.ApiClient/Handlers/InternalApiKeyHandler.cs",
+      "sha256": "a2b9bafc4c9fbba6ceca7adfe628371da11bf61b28c50d90d55e14492cfb6d44",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.AspNetCore/Mesto.Plus.Shared.AspNetCore.csproj",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.AspNetCore/Krizovka.Shared.AspNetCore.csproj",
+      "sha256": "1597959a472fe1c6c8fc20c363dd7b61ca63a45594e4dfd6acbd7bf052f63142",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.AspNetCore/Mesto.Plus.Shared.AspNetCore/ConfigurationValidationExtensions.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.AspNetCore/Krizovka.Shared.AspNetCore/ConfigurationValidationExtensions.cs",
+      "sha256": "a6201f7b0f2696900a73b2614a67dbc343e49ffffba808c9b7adcec673879d0d",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.AspNetCore/Mesto.Plus.Shared.AspNetCore/RoutePrefixConvention.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.AspNetCore/Krizovka.Shared.AspNetCore/RoutePrefixConvention.cs",
+      "sha256": "af2d99e98423336537301a6b52064899ec0aae6435f243a197f59531bfdda83f",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.AspNetCore/Mesto.Plus.Shared.AspNetCore/StandardSetupExtensions.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.AspNetCore/Krizovka.Shared.AspNetCore/StandardSetupExtensions.cs",
+      "sha256": "2c54e72a7a4b2adf9031ebea0642e7bfdbc5073846dc0fd04fd94babf0aef1fc",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.AspNetCore/Mesto.Plus.Shared.AspNetCore/KosControllersExtensions.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.AspNetCore/Krizovka.Shared.AspNetCore/KosControllersExtensions.cs",
+      "sha256": "a89964c6fd5e238f241e1a3c72706ae7ff5dfb95b2b896f70d3f7daee49bb496",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.AspNetCore/Mesto.Plus.Shared.AspNetCore/KosOpenApiExtensions.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.AspNetCore/Krizovka.Shared.AspNetCore/KosOpenApiExtensions.cs",
+      "sha256": "408b24a0f578f40c3b8fc37d254bef154e66211d80149af18164ac0bbfce9363",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd",
+      "status": "Removed during adaptation: source demo bootstrap, incomplete legacy migrations or unused OpenAPI integration."
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.AspNetCore/Mesto.Plus.Shared.AspNetCore/LoggingSetupExtensions.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.AspNetCore/Krizovka.Shared.AspNetCore/LoggingSetupExtensions.cs",
+      "sha256": "15e7ad5e1cfabc24b3d1e3188a3f89b4bb209edc9304a2a53ac72f92a5b9e8e7",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.AspNetCore/Mesto.Plus.Shared.AspNetCore/Responses/StandardResponses.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.AspNetCore/Krizovka.Shared.AspNetCore/Responses/StandardResponses.cs",
+      "sha256": "f6b54084ed7b2575eaef9e150565c6ac7824431a154049d9902669e308393817",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.AuditLogging/Mesto.Plus.Shared.AuditLogging.csproj",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.AuditLogging/Krizovka.Shared.AuditLogging.csproj",
+      "sha256": "be697e907824773c6aa9a0350d1253ccb23fbc013889a72cd82f74588afa0d4f",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.AuditLogging/Mesto.Plus.Shared.AuditLogging/HttpAuditLogClient.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.AuditLogging/Krizovka.Shared.AuditLogging/HttpAuditLogClient.cs",
+      "sha256": "890c752ecb7bef55951e5c922cfb22dc103416da0c405e592f558b1080963384",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.AuditLogging/Mesto.Plus.Shared.AuditLogging/AuditLoggingExtensions.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.AuditLogging/Krizovka.Shared.AuditLogging/AuditLoggingExtensions.cs",
+      "sha256": "b6ff5e2ff421e27a189c6f6603fd5fe221f86990e38bef10d768df09f3ec8d92",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.AuditLogging/Mesto.Plus.Shared.AuditLogging/IAuditLogClient.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.AuditLogging/Krizovka.Shared.AuditLogging/IAuditLogClient.cs",
+      "sha256": "b41d8818d45f8d06e457d29e3c6ea86bc6fc7863faf822c58f616bb63605b369",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.AuditLogging/Mesto.Plus.Shared.AuditLogging/AuditLoggingMiddleware.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.AuditLogging/Krizovka.Shared.AuditLogging/AuditLoggingMiddleware.cs",
+      "sha256": "f84a95755f68e0d31b7185e57dc307448f9bed56963589829b389d747e9ecf0d",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.Authentication/Mesto.Plus.Shared.Authentication.csproj",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.Authentication/Krizovka.Shared.Authentication.csproj",
+      "sha256": "b2bf00f94be55477aeba2a74bbeb408d36312ae86f38262d7131b771a6004ba3",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.Authentication/Mesto.Plus.Shared.Authentication/UsBackofficePermissionChecker.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.Authentication/Krizovka.Shared.Authentication/UsBackofficePermissionChecker.cs",
+      "sha256": "68993b4ce8eb0853f2fe54c3d615c94360bd7e94b5a4d12eb3ab979ed1328fff",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.Authentication/Mesto.Plus.Shared.Authentication/AuthorizeOptionalSystemResourceOwnerScopeAttribute.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.Authentication/Krizovka.Shared.Authentication/AuthorizeOptionalSystemResourceOwnerScopeAttribute.cs",
+      "sha256": "eb8ecbd0c8b7b7445f16e68fc2c80a94647d8de8f6f40d6ec7043904d81522f0",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.Authentication/Mesto.Plus.Shared.Authentication/MestoPlusAuthenticationHandler.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.Authentication/Krizovka.Shared.Authentication/MestoPlusAuthenticationHandler.cs",
+      "sha256": "156fe08be3a75c689e132ff78a19118681e66bdfff71bdb4ffeb8d6e428414cd",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.Authentication/Mesto.Plus.Shared.Authentication/OwnerScopeAuthorizationHelper.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.Authentication/Krizovka.Shared.Authentication/OwnerScopeAuthorizationHelper.cs",
+      "sha256": "4fc6f14a96acbda8e9af3323c277eda3b37f02986f0d624dd68e2b33f1c52226",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.Authentication/Mesto.Plus.Shared.Authentication/AuthorizeResourceOwnerScopeAttribute.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.Authentication/Krizovka.Shared.Authentication/AuthorizeResourceOwnerScopeAttribute.cs",
+      "sha256": "b1b362b05908abc8764f8ddf822375aff80d46e8d344746b5c9737394ca1ee30",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.Authentication/Mesto.Plus.Shared.Authentication/ApiKeyAuthorizeAttribute.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.Authentication/Krizovka.Shared.Authentication/ApiKeyAuthorizeAttribute.cs",
+      "sha256": "f33af411a7b38b494298a2e6e44fc3c0d9e3124865fb64e853163ec88d803dab",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.Authentication/Mesto.Plus.Shared.Authentication/ScopeAssignment.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.Authentication/Krizovka.Shared.Authentication/ScopeAssignment.cs",
+      "sha256": "5fa86950ac66fb28b42f5ab175c181ce3cddea93c577b44afef086a9c58317a0",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.Authentication/Mesto.Plus.Shared.Authentication/BackofficeAccessibleSystemsService.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.Authentication/Krizovka.Shared.Authentication/BackofficeAccessibleSystemsService.cs",
+      "sha256": "2dea90741285bd0638d354a62359737e5d91be4b2fc663c501b53fe1d6d17180",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.Authentication/Mesto.Plus.Shared.Authentication/CurrentUserService.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.Authentication/Krizovka.Shared.Authentication/CurrentUserService.cs",
+      "sha256": "34a31da63a9340694239d12cc9ce920a913fc21a62f49bb8a77931b1fbd9b847",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.Authentication/Mesto.Plus.Shared.Authentication/IOwnerScopeRequirement.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.Authentication/Krizovka.Shared.Authentication/IOwnerScopeRequirement.cs",
+      "sha256": "abca819461a61c338ba329a4aded418b90f38bf609d6e66c4b99c5970f07f528",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.Authentication/Mesto.Plus.Shared.Authentication/ISystemOwnerScopeResolver.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.Authentication/Krizovka.Shared.Authentication/ISystemOwnerScopeResolver.cs",
+      "sha256": "713ffb19270aae8db2003e297bc736fbc08e9b8eca74bc8bee55ebf1e2ad4e87",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.Authentication/Mesto.Plus.Shared.Authentication/AuthorizeOwnerScopeAttribute.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.Authentication/Krizovka.Shared.Authentication/AuthorizeOwnerScopeAttribute.cs",
+      "sha256": "84cfe58a05a9a98c55308b5effda2e106535b8601a1ea67230724a501903f4cb",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.Authentication/Mesto.Plus.Shared.Authentication/RequirePermissionAttribute.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.Authentication/Krizovka.Shared.Authentication/RequirePermissionAttribute.cs",
+      "sha256": "d42083353b758c6764983471c1f9d3d61a6cf475d494d5c2f9ae87ccb83c759a",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.Authentication/Mesto.Plus.Shared.Authentication/AuthorizeSystemOwnerScopeAttribute.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.Authentication/Krizovka.Shared.Authentication/AuthorizeSystemOwnerScopeAttribute.cs",
+      "sha256": "f436a3e0c74e75d6a612ad879ec5ef43fff9e4ead0cd809b3ab8e8f2d411af08",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.Authentication/Mesto.Plus.Shared.Authentication/UsAuthClient.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.Authentication/Krizovka.Shared.Authentication/UsAuthClient.cs",
+      "sha256": "eb2ff0103b92386dc0fe81e5f6839bc9159d6c3caa44d3129b1862298264ec11",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.Authentication/Mesto.Plus.Shared.Authentication/AuthorizeCityAttribute.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.Authentication/Krizovka.Shared.Authentication/AuthorizeCityAttribute.cs",
+      "sha256": "78d44e2ce93fdd1c811e8930cd3aa441723b313ec2cd88812508ce4a835d8a0f",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.Authentication/Mesto.Plus.Shared.Authentication/AuthenticationExtensions.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.Authentication/Krizovka.Shared.Authentication/AuthenticationExtensions.cs",
+      "sha256": "6dbdc2a2ff3f09275038a42b5f9123e6faca535d919123c8a0ae737b5435a21c",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.Authentication/Mesto.Plus.Shared.Authentication/SrsSystemOwnerScopeResolver.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.Authentication/Krizovka.Shared.Authentication/SrsSystemOwnerScopeResolver.cs",
+      "sha256": "4fd0d8a68a25fab35856452e12b4e69af270cba929062deffc66d19110bdb127",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.Authentication/Mesto.Plus.Shared.Authentication/AuthenticationOptions.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.Authentication/Krizovka.Shared.Authentication/AuthenticationOptions.cs",
+      "sha256": "54d6e535831f922c464d747485f2c33499436c7911d9a41d59556fe4ee944f7b",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.Authentication/Mesto.Plus.Shared.Authentication/AuthorizeSystemResourceOwnerScopeAttribute.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.Authentication/Krizovka.Shared.Authentication/AuthorizeSystemResourceOwnerScopeAttribute.cs",
+      "sha256": "319e66a42417984e9a744e7577e48809d18112a7a571fa7cd6613d6beeace5ed",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.Authentication/Mesto.Plus.Shared.Authentication/ICurrentUserService.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.Authentication/Krizovka.Shared.Authentication/ICurrentUserService.cs",
+      "sha256": "a0ffb47e250c3b7d6bee243269d9984124ee1d01d33a96916de1a3ce614d9179",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.ErrorHandling/Mesto.Plus.Shared.ErrorHandling.csproj",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.ErrorHandling/Krizovka.Shared.ErrorHandling.csproj",
+      "sha256": "766e071f8364d3d641d5faf0ab9bb59f1f8d46dcd6cc0c64ffba7bb028e6c46f",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.ErrorHandling/Mesto.Plus.Shared.ErrorHandling/ErrorHandlingExtensions.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.ErrorHandling/Krizovka.Shared.ErrorHandling/ErrorHandlingExtensions.cs",
+      "sha256": "1fbb1286b2ed271c77c22fe021f43dcf4663f19f6e458a60c6bf907811183a74",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.ErrorHandling/Mesto.Plus.Shared.ErrorHandling/Middleware/GlobalExceptionHandlerMiddleware.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.ErrorHandling/Krizovka.Shared.ErrorHandling/Middleware/GlobalExceptionHandlerMiddleware.cs",
+      "sha256": "d0cb9dba458d7b5c9704fc67295e122206e17ed9a1d4420fa35e45793ea19627",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.ErrorHandling/Mesto.Plus.Shared.ErrorHandling/Models/ErrorResponse.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.ErrorHandling/Krizovka.Shared.ErrorHandling/Models/ErrorResponse.cs",
+      "sha256": "7023093446ae48ce33fff905a01d4e7602a500b760645dd5d1d43f2423265c2e",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.ErrorHandling/Mesto.Plus.Shared.ErrorHandling/Exceptions/ForbiddenException.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.ErrorHandling/Krizovka.Shared.ErrorHandling/Exceptions/ForbiddenException.cs",
+      "sha256": "1cc1bb26e5b079080bc273984ffd9a59ec4669968f428318ba22d3bd989c3b5d",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.ErrorHandling/Mesto.Plus.Shared.ErrorHandling/Exceptions/NotFoundException.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.ErrorHandling/Krizovka.Shared.ErrorHandling/Exceptions/NotFoundException.cs",
+      "sha256": "d649c7a425d9948acf9bea5f4c95eef7541265cfb38493fec2a8c0452a065483",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.ErrorHandling/Mesto.Plus.Shared.ErrorHandling/Exceptions/UnauthorizedException.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.ErrorHandling/Krizovka.Shared.ErrorHandling/Exceptions/UnauthorizedException.cs",
+      "sha256": "8c9cfcf5723c874e3003c4e75c9a49e53e1fd748f27b242c9ab3e62166544dfc",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.ErrorHandling/Mesto.Plus.Shared.ErrorHandling/Exceptions/DomainException.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.ErrorHandling/Krizovka.Shared.ErrorHandling/Exceptions/DomainException.cs",
+      "sha256": "a287c925bade16b13e4d24eff2697b48965d0e2d05c243afcf3436eb853dd780",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.ErrorHandling/Mesto.Plus.Shared.ErrorHandling/Exceptions/ConflictException.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.ErrorHandling/Krizovka.Shared.ErrorHandling/Exceptions/ConflictException.cs",
+      "sha256": "6a603ac84cf72d37abb06ebe3afaac424739b8c25c0bb92a67c96146d39ebd12",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.ErrorHandling/Mesto.Plus.Shared.ErrorHandling/Exceptions/ValidationException.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.ErrorHandling/Krizovka.Shared.ErrorHandling/Exceptions/ValidationException.cs",
+      "sha256": "8fdd25ad00c503874c3a51e7b6daf0d9faa8d24c09e8cbb3c7b7812be8591085",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.ErrorHandling/Mesto.Plus.Shared.ErrorHandling/Behaviors/ValidationBehavior.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.ErrorHandling/Krizovka.Shared.ErrorHandling/Behaviors/ValidationBehavior.cs",
+      "sha256": "f0e7da0d4826df0a9a4514c7bb694358961e1bce97c740c5c542d97a39e3ffba",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.Messaging/Mesto.Plus.Shared.Messaging.csproj",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.Messaging/Krizovka.Shared.Messaging.csproj",
+      "sha256": "d2aafd97fab89f2082814d2cd4c359b321b5edde9763e85402e6703bdd53767c",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.Messaging/Mesto.Plus.Shared.Messaging/MessagingExtensions.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.Messaging/Krizovka.Shared.Messaging/MessagingExtensions.cs",
+      "sha256": "09aa55bd624fcc9b3989160ce2f12559e39522bffa649cdf00801e057cb5c0f7",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.ServiceRegistry/Mesto.Plus.Shared.ServiceRegistry.csproj",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.ServiceRegistry/Krizovka.Shared.ServiceRegistry.csproj",
+      "sha256": "be697e907824773c6aa9a0350d1253ccb23fbc013889a72cd82f74588afa0d4f",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.ServiceRegistry/CorsExtensions.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.ServiceRegistry/CorsExtensions.cs",
+      "sha256": "acae11b8bc954ecc503a946a604497366f4b0c5fcaa63d9767c89acada63de0f",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.ServiceRegistry/Mesto.Plus.Shared.ServiceRegistry/ServiceRegistryClient.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.ServiceRegistry/Krizovka.Shared.ServiceRegistry/ServiceRegistryClient.cs",
+      "sha256": "8c4e8ea4e1bf01b77576a54e5ba4da00b1df17fc5e9102a661c6140494ae7aba",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.ServiceRegistry/Mesto.Plus.Shared.ServiceRegistry/IServiceRegistryClient.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.ServiceRegistry/Krizovka.Shared.ServiceRegistry/IServiceRegistryClient.cs",
+      "sha256": "6cf6815cb93489cc3f8a15ca169b660817906fab869e4ad531735cab93abe9b4",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.ServiceRegistry/Mesto.Plus.Shared.ServiceRegistry/ServiceRegistryExtensions.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.ServiceRegistry/Krizovka.Shared.ServiceRegistry/ServiceRegistryExtensions.cs",
+      "sha256": "f200a287f951d04b10abab8d4a248a32229e04c5c8ba89a66fa4aaf8c1139b86",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Common/Mesto.Plus.Shared.ServiceRegistry/Mesto.Plus.Shared.ServiceRegistry/Models/ServiceModels.cs",
+      "target": "backend/recycled/src/Shared/Common/Krizovka.Shared.ServiceRegistry/Krizovka.Shared.ServiceRegistry/Models/ServiceModels.cs",
+      "sha256": "cff1d383362bc90b1175f9226051c4e6ae99a1bf9a8a78799d46cac59f6b44d1",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Core/Mesto.Plus.Shared.Events.Core/UserProfileUpdatedEvent.cs",
+      "target": "backend/recycled/src/Shared/Core/Krizovka.Shared.Events.Core/UserProfileUpdatedEvent.cs",
+      "sha256": "0b8c4171f83adf7b5c004de98143edd3a5cd38b3a57df01202f8fadadc9027b0",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Core/Mesto.Plus.Shared.Events.Core/Mesto.Plus.Shared.Events.Core.csproj",
+      "target": "backend/recycled/src/Shared/Core/Krizovka.Shared.Events.Core/Krizovka.Shared.Events.Core.csproj",
+      "sha256": "91e4b315007aa128f06aac453e52b95e66e92e5d6b4e7d418b8801cc8b61e06d",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Core/Mesto.Plus.Shared.Events.Core/SystemCreatedEvent.cs",
+      "target": "backend/recycled/src/Shared/Core/Krizovka.Shared.Events.Core/SystemCreatedEvent.cs",
+      "sha256": "a155f7cfac93dca6fc4f91a06877fd61e75a803a7da0156c2d0b7dc04678c9cc",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Core/Mesto.Plus.Shared.Events.Core/AuditEventRecorded.cs",
+      "target": "backend/recycled/src/Shared/Core/Krizovka.Shared.Events.Core/AuditEventRecorded.cs",
+      "sha256": "fdc0f4eee6d9037579183ee778ebdf99a483f558592be47691e93b9665eecfb5",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Core/Mesto.Plus.Shared.Events.Core/IEvent.cs",
+      "target": "backend/recycled/src/Shared/Core/Krizovka.Shared.Events.Core/IEvent.cs",
+      "sha256": "0a979adcc961ec3f0810c418947dee19a3808070d4bcf82a04eeb6eb80e33b8b",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Core/Mesto.Plus.Shared.Events.Core/MockPublishEndpoint.cs",
+      "target": "backend/recycled/src/Shared/Core/Krizovka.Shared.Events.Core/MockPublishEndpoint.cs",
+      "sha256": "d3a5151a58c7a86238ede6fe7bdc89ace01eaa892fe18b40fb606993c21d0108",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Core/Mesto.Plus.Shared.Events.Core/Class1.cs",
+      "target": "backend/recycled/src/Shared/Core/Krizovka.Shared.Events.Core/Class1.cs",
+      "sha256": "4d7e6c750bcc19e86993916c39040a690e1ce8354574850f1c31c90086e5fddd",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Core/Mesto.Plus.Shared.Events.Core/UserEvents.cs",
+      "target": "backend/recycled/src/Shared/Core/Krizovka.Shared.Events.Core/UserEvents.cs",
+      "sha256": "a8dbbc08415bcad9885dbc8df5cb04f15fbd57cbf9060b8a0d37dcda29074185",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Core/Mesto.Plus.Shared.Events.Core/US/UsEvents.cs",
+      "target": "backend/recycled/src/Shared/Core/Krizovka.Shared.Events.Core/US/UsEvents.cs",
+      "sha256": "178aa521dd348791cab29640b0e9d460be8cbaf3c8fb0f84b217cd07893505de",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Core/Mesto.Plus.Shared.Events.Core/NFS/NfsEvents.cs",
+      "target": "backend/recycled/src/Shared/Core/Krizovka.Shared.Events.Core/NFS/NfsEvents.cs",
+      "sha256": "af33ed9f425ee1af13ac99806b0310e0703bcde0d938165759c92a4c40d6f58f",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Shared/Core/Mesto.Plus.Shared.Events.Core/ALS/AlsEvents.cs",
+      "target": "backend/recycled/src/Shared/Core/Krizovka.Shared.Events.Core/ALS/AlsEvents.cs",
+      "sha256": "377d53b39636587785696ae82d4f94713a8dffb36c8414e7c3cac2306d5de705",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Apps/Frontend/packages/core/src/shared/components/UI/ModulePage.tsx",
+      "target": "apps/admin/src/shared/components/ModulePage.tsx",
+      "sha256": "3aa609b886da66c5397d2f4971c0180f4c0a8a7537c07ef495e9a794567246a0",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Apps/Frontend/packages/core/src/shared/components/UI/PageHeader.tsx",
+      "target": "apps/admin/src/shared/components/PageHeader.tsx",
+      "sha256": "8880747282e1459d229ba73acc1bffedff6d7f7cd91808b695847930ba3ceb8f",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Apps/Frontend/packages/core/src/shared/types/api-errors.ts",
+      "target": "apps/admin/src/shared/types/api-errors.ts",
+      "sha256": "f69657a0bc9f6f6aa0854d0a0523807dc7e942bbbe5689d709bb55412bf8b427",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Apps/Frontend/packages/core/src/shared/utils/extractItems.ts",
+      "target": "apps/admin/src/shared/utils/extractItems.ts",
+      "sha256": "d2ad21ffedf41996fa33cc5d59b57c1c1ef560c4886a44e672847065075f727b",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/IS/src/Mesto.Plus.IS.Api/Domain/Entities/Issue.cs",
+      "target": "backend/Krizovka.Api/Reports/Issue.cs",
+      "sha256": "c8649a7f2622d95b784cf360f3362c3eeee169d48fcdde5f2f07a9bc449d4a5e",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/IS/src/Mesto.Plus.IS.Api/Domain/Entities/IssueAttachment.cs",
+      "target": "backend/Krizovka.Api/Reports/IssueAttachment.cs",
+      "sha256": "ca25af1a033a286ef8d02e346c60fe574d1089e3be78e101cf28e28a7fe65048",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Services/IS/src/Mesto.Plus.IS.Api/Domain/Entities/IssueHistory.cs",
+      "target": "backend/Krizovka.Api/Reports/IssueHistory.cs",
+      "sha256": "7c52b2221a1c8540239eb01698b6b19feadafa5734842daa07df816b4ce25cbb",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Tests/Architecture.Tests/Rules/Architecture/DomainRulesTests.cs",
+      "target": "backend/Tests/Krizovka.Architecture.Tests/DomainRulesTests.cs",
+      "sha256": "44ae673ffcb3e5815a1b44263dcde1f5f3c02f8ebe787fd10a5b03bedbe3a626",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "src/Tests/Architecture.Tests/Rules/Architecture/ServiceIsolationTests.cs",
+      "target": "backend/Tests/Krizovka.Architecture.Tests/ServiceIsolationTests.cs",
+      "sha256": "34c94e8a45db8a07afc6f92637f7f7852fa1ab99d52adca336058da803780bb7",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd"
+    },
+    {
+      "source": "lib/core/errors/app_failure.dart",
+      "target": "apps/client/lib/core/errors/app_failure.dart",
+      "sha256": "a6af9110226842a20c379e26c11233e8b1e9104dcfcba92d9893da88787b3945",
+      "repository": "zmente-to-flutter",
+      "revision": "6f3cb0f8c64b4516be6033d41efb48e8762ccea6"
+    },
+    {
+      "source": "lib/core/errors/dio_failure_mapper.dart",
+      "target": "apps/client/lib/core/errors/dio_failure_mapper.dart",
+      "sha256": "df11b5e46f1ab19256f49acbe421e070721facc3c07bd0ac9cce1b32c1e7de00",
+      "repository": "zmente-to-flutter",
+      "revision": "6f3cb0f8c64b4516be6033d41efb48e8762ccea6"
+    },
+    {
+      "source": "lib/core/errors/cancellation.dart",
+      "target": "apps/client/lib/core/errors/cancellation.dart",
+      "sha256": "d348ec87d4e1ba7c8977f3eeaa2f6dc50bcd1e9d61e79f8832656c2dee9514aa",
+      "repository": "zmente-to-flutter",
+      "revision": "6f3cb0f8c64b4516be6033d41efb48e8762ccea6"
+    },
+    {
+      "source": "lib/core/api/dio_cancellation_binding.dart",
+      "target": "apps/client/lib/core/api/dio_cancellation_binding.dart",
+      "sha256": "cfba240c5538276dea9529c85bffe5fd5c71d087c589c4bf1eba3768aa01a52f",
+      "repository": "zmente-to-flutter",
+      "revision": "6f3cb0f8c64b4516be6033d41efb48e8762ccea6"
+    },
+    {
+      "source": "lib/core/utils/image_source_data.dart",
+      "target": "apps/client/lib/core/utils/image_source_data.dart",
+      "sha256": "673f107dd9c8ea5637c5d81f085ba3d4f2adc1bb9007efbb56654e7454c30c28",
+      "repository": "zmente-to-flutter",
+      "revision": "6f3cb0f8c64b4516be6033d41efb48e8762ccea6"
+    }
+  ]
+}
