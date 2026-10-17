@@ -16,7 +16,8 @@ public record GetCurrentUserResponse(
     bool IsSuperAdmin,
     RoleInfo? Role,
     List<PermissionInfo> Permissions,
-    List<CityAssignmentInfo> CityAssignments
+    List<CityAssignmentInfo> CityAssignments,
+    Guid? OrganizationId = null
 );
 
 public record RoleInfo(

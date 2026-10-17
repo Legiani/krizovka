@@ -45,7 +45,8 @@ public class InternalUsAuthClient : IUsAuthClient
             internalResult.CityAssignments?.Select(a => new Krizovka.Shared.Authentication.CityAssignment(a.CityId, a.RoleCode)).ToList(),
             internalResult.ActingAccountId,
             internalResult.IsBackoffice,
-            internalResult.ScopeAssignments?.Select(a => new Krizovka.Shared.Authentication.ScopeAssignment(a.ScopeType, a.ScopeId, a.RoleCode)).ToList()
+            internalResult.ScopeAssignments?.Select(a => new Krizovka.Shared.Authentication.ScopeAssignment(a.ScopeType, a.ScopeId, a.RoleCode)).ToList(),
+            internalResult.OrganizationId
         );
     }
 }

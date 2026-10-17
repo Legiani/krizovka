@@ -81,7 +81,8 @@ public class GetCurrentUserQueryHandler : IRequestHandler<GetCurrentUserQuery, G
             isSuperAdmin,
             roleInfo,
             permissions,
-            cityAssignments
+            cityAssignments,
+            boUser.OrganizationId
         );
     }
 }

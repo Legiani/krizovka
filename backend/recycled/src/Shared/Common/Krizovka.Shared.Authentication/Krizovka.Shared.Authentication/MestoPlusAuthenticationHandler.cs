@@ -88,6 +88,43 @@ public class MestoPlusAuthenticationHandler : AuthenticationHandler<Authenticati
             claims.Add(new Claim("Permission", permission));
         }
 
+        if (validationResult.OrganizationId.HasValue)
+        {
+            if (!claims.Any(c => c.Type == "OrganizationId"))
+            {
+                claims.Add(new Claim("OrganizationId", validationResult.OrganizationId.Value.ToString()));
+            }
+            if (!claims.Any(c => c.Type == "org_id"))
+            {
+                claims.Add(new Claim("org_id", validationResult.OrganizationId.Value.ToString()));
+            }
+        }
+
+        // If the token is a JWT, also extract OrganizationId, org_id, and SuperAdmin role if present
+        var jwtHandler = new System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler();
+        if (jwtHandler.CanReadToken(token))
+        {
+            var jwt = jwtHandler.ReadJwtToken(token);
+            foreach (var claim in jwt.Claims)
+            {
+                if (claim.Type is "OrganizationId" or "org_id" or "organization_id")
+                {
+                    if (!claims.Any(c => c.Type == claim.Type))
+                    {
+                        claims.Add(new Claim(claim.Type, claim.Value));
+                    }
+                }
+                else if (claim.Type == ClaimTypes.Role || claim.Type == "role")
+                {
+                    if (claim.Value.Equals("SuperAdmin", StringComparison.OrdinalIgnoreCase)
+                        && !claims.Any(c => c.Type == ClaimTypes.Role && c.Value == "SuperAdmin"))
+                    {
+                        claims.Add(new Claim(ClaimTypes.Role, "SuperAdmin"));
+                    }
+                }
+            }
+        }
+
         var identity = new ClaimsIdentity(claims, Scheme.Name);
         var principal = new ClaimsPrincipal(identity);
         var ticket = new AuthenticationTicket(principal, Scheme.Name);

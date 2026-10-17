@@ -74,7 +74,8 @@ public class UsAuthClient : IUsAuthClient
                 result.CityAssignments ?? new List<CityAssignment>(),
                 result.ActingAccountId,
                 result.IsBackoffice,
-                result.ScopeAssignments ?? new List<ScopeAssignment>()
+                result.ScopeAssignments ?? new List<ScopeAssignment>(),
+                result.OrganizationId
             );
 
             _cache.Set(cacheKey, validationResult, TimeSpan.FromSeconds(_options.CacheDurationSeconds));
@@ -98,7 +99,8 @@ public class UsAuthClient : IUsAuthClient
         ScopeInfo? Scope,
         List<CityAssignment>? CityAssignments,
         bool IsBackoffice,
-        List<ScopeAssignment>? ScopeAssignments
+        List<ScopeAssignment>? ScopeAssignments,
+        Guid? OrganizationId = null
     );
 
     private record ScopeInfo(
@@ -120,5 +122,6 @@ public record ValidationResult(
     List<CityAssignment>? CityAssignments = null,
     Guid? ActingAccountId = null,
     bool IsBackoffice = true,
-    List<ScopeAssignment>? ScopeAssignments = null
+    List<ScopeAssignment>? ScopeAssignments = null,
+    Guid? OrganizationId = null
 );

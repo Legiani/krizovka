@@ -22,6 +22,217 @@ namespace Krizovka.Api.Data.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("Krizovka.Api.Guides.Guide", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Category")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.Property<string>("CreatedAt")
+                        .IsRequired()
+                        .HasColumnType("character varying(48)");
+
+                    b.Property<string>("DiagramMermaid")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("EmergencyContactsJson")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("LegalBasisJson")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<Guid>("OrganizationId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("PublishedAt")
+                        .HasColumnType("character varying(48)");
+
+                    b.Property<string>("QuickSummary")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("SourceTemplateId")
+                        .HasColumnType("text");
+
+                    b.Property<int?>("SourceVersion")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("character varying(20)");
+
+                    b.Property<string>("StepsJson")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Summary")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(300)
+                        .HasColumnType("character varying(300)");
+
+                    b.Property<string>("UpdatedAt")
+                        .HasColumnType("character varying(48)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrganizationId", "Status");
+
+                    b.ToTable("guides", (string)null);
+                });
+
+            modelBuilder.Entity("Krizovka.Api.Guides.GuideTemplate", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.Property<string>("Category")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.Property<string>("CreatedAt")
+                        .IsRequired()
+                        .HasColumnType("character varying(48)");
+
+                    b.Property<string>("DiagramMermaid")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("EmergencyContactsJson")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("LegalBasisJson")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("QuickSummary")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("RecommendedOrgTypesJson")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("StepsJson")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Summary")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(300)
+                        .HasColumnType("character varying(300)");
+
+                    b.Property<int>("Version")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("guide_templates", (string)null);
+                });
+
+            modelBuilder.Entity("Krizovka.Api.Organizations.Organization", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasMaxLength(32)
+                        .HasColumnType("character varying(32)");
+
+                    b.Property<string>("ContactEmail")
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
+
+                    b.Property<string>("ContactPhone")
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<string>("CreatedAt")
+                        .IsRequired()
+                        .HasColumnType("character varying(48)");
+
+                    b.Property<bool>("IsDefaultDispatch")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("character varying(20)");
+
+                    b.Property<string>("UpdatedAt")
+                        .HasColumnType("character varying(48)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("organizations", (string)null);
+                });
+
+            modelBuilder.Entity("Krizovka.Api.Organizations.OrganizationArea", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("AllocatedVelinId")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.Property<string>("CreatedAt")
+                        .IsRequired()
+                        .HasColumnType("character varying(48)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
+
+                    b.Property<double>("OffsetMeters")
+                        .HasColumnType("double precision");
+
+                    b.Property<Guid>("OrganizationId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("PolygonGeoJson")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("UpdatedAt")
+                        .HasColumnType("character varying(48)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrganizationId");
+
+                    b.ToTable("organization_areas", (string)null);
+                });
+
             modelBuilder.Entity("Krizovka.Api.Reports.Issue", b =>
                 {
                     b.Property<Guid>("Id")
@@ -34,18 +245,23 @@ namespace Krizovka.Api.Data.Migrations
                     b.Property<Guid>("ClientReportId")
                         .HasColumnType("uuid");
 
-                    b.Property<DateTimeOffset>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<string>("CreatedAt")
+                        .IsRequired()
+                        .HasColumnType("character varying(48)");
 
                     b.Property<string>("Description")
                         .HasMaxLength(4000)
                         .HasColumnType("character varying(4000)");
 
+                    b.Property<string>("IpAddress")
+                        .HasMaxLength(45)
+                        .HasColumnType("character varying(45)");
+
                     b.Property<double?>("Latitude")
                         .HasColumnType("double precision");
 
-                    b.Property<DateTimeOffset?>("LocationMeasuredAt")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<string>("LocationMeasuredAt")
+                        .HasColumnType("character varying(48)");
 
                     b.Property<double?>("Longitude")
                         .HasColumnType("double precision");
@@ -61,15 +277,19 @@ namespace Krizovka.Api.Data.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("character varying(20)");
 
-                    b.Property<DateTimeOffset?>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<string>("UpdatedAt")
+                        .HasColumnType("character varying(48)");
+
+                    b.Property<string>("UserAgent")
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("OrganizationId", "CreatedAt");
-
-                    b.HasIndex("OrganizationId", "ReporterAccountId", "ClientReportId")
+                    b.HasIndex("OrganizationId", "ClientReportId")
                         .IsUnique();
+
+                    b.HasIndex("OrganizationId", "CreatedAt");
 
                     b.ToTable("reports", (string)null);
                 });
@@ -84,8 +304,9 @@ namespace Krizovka.Api.Data.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTimeOffset>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<string>("CreatedAt")
+                        .IsRequired()
+                        .HasColumnType("character varying(48)");
 
                     b.Property<string>("FileName")
                         .IsRequired()
@@ -121,8 +342,9 @@ namespace Krizovka.Api.Data.Migrations
                     b.Property<Guid>("ActorId")
                         .HasColumnType("uuid");
 
-                    b.Property<DateTimeOffset>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<string>("CreatedAt")
+                        .IsRequired()
+                        .HasColumnType("character varying(48)");
 
                     b.Property<Guid>("IssueId")
                         .HasColumnType("uuid");
@@ -141,6 +363,17 @@ namespace Krizovka.Api.Data.Migrations
                     b.HasIndex("IssueId");
 
                     b.ToTable("report_history", (string)null);
+                });
+
+            modelBuilder.Entity("Krizovka.Api.Organizations.OrganizationArea", b =>
+                {
+                    b.HasOne("Krizovka.Api.Organizations.Organization", "Organization")
+                        .WithMany("Areas")
+                        .HasForeignKey("OrganizationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Organization");
                 });
 
             modelBuilder.Entity("Krizovka.Api.Reports.Issue", b =>
@@ -197,6 +430,11 @@ namespace Krizovka.Api.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Issue");
+                });
+
+            modelBuilder.Entity("Krizovka.Api.Organizations.Organization", b =>
+                {
+                    b.Navigation("Areas");
                 });
 
             modelBuilder.Entity("Krizovka.Api.Reports.Issue", b =>

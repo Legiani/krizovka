@@ -13,6 +13,7 @@ namespace Krizovka.Users.Domain.Entities
         public bool IsSuperAdmin { get; set; }
         public bool IsActive { get; set; }
         public string PasswordHash { get; set; } = string.Empty;
+        public Guid? OrganizationId { get; set; }
 
         public Guid? RoleId { get; set; }
         public BackofficeRole? Role { get; set; }

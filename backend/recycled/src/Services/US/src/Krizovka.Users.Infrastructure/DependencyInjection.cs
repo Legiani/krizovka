@@ -36,7 +36,8 @@ public static class DependencyInjection
         services.AddDbContext<UsDbContext>(options =>
             options.UseNpgsql(connectionString,
                 x => x.MigrationsAssembly(typeof(UsDbContext).Assembly.FullName))
-                   .UseSnakeCaseNamingConvention());
+                   .UseSnakeCaseNamingConvention()
+                   .ConfigureWarnings(w => w.Ignore(Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId.PendingModelChangesWarning)));
 
         // MediatR (Register handlers in Infrastructure layer)
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(DependencyInjection).Assembly));
@@ -58,31 +59,6 @@ public static class DependencyInjection
         services.AddScoped<IBackofficeTokenService, BackofficeTokenService>();
         services.AddSingleton<IRoleCatalogService, RoleCatalogService>();
         services.AddScoped<IBackofficePermissionChecker, BackofficePermissionChecker>();
-        services.AddScoped<IKratosIdentityService, KratosIdentityService>();
-
-        // KratosPublic is required to validate session tokens against `/sessions/whoami`.
-        services.AddHttpClient("KratosPublic", client =>
-        {
-            var url = Environment.GetEnvironmentVariable("KRATOS_PUBLIC_URL") ?? "http://localhost:5615";
-            if (string.Equals(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT"), "Production", StringComparison.OrdinalIgnoreCase))
-            {
-                if (url.Contains("localhost") || url.Contains("127.0.0.1"))
-                    throw new InvalidOperationException("KRATOS_PUBLIC_URL cannot be localhost in Production.");
-            }
-            client.BaseAddress = new Uri(url);
-        });
-
-        // KratosAdmin is kept: UpdateIdentityCommandHandler uses it for user app identity updates.
-        services.AddHttpClient("KratosAdmin", client =>
-        {
-            var url = Environment.GetEnvironmentVariable("KRATOS_ADMIN_URL") ?? "http://localhost:5616";
-            if (string.Equals(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT"), "Production", StringComparison.OrdinalIgnoreCase))
-            {
-                if (url.Contains("localhost") || url.Contains("127.0.0.1"))
-                    throw new InvalidOperationException("KRATOS_ADMIN_URL cannot be localhost in Production.");
-            }
-            client.BaseAddress = new Uri(url);
-        });
 
         // MassTransit
         services.AddSharedMessaging(configuration, x =>

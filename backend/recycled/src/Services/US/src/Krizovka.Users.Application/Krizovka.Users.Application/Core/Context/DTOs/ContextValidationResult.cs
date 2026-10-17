@@ -7,6 +7,7 @@ public class ContextValidationResult
     public Guid AccountId { get; set; }
     public Guid IdentityId { get; set; } // For authentication middleware compatibility
     public Guid? ActingAccountId { get; set; }
+    public Guid? OrganizationId { get; set; }
     public string Operation { get; set; } = string.Empty;
     public bool IsBackoffice { get; set; }
     public List<string> Roles { get; set; } = new();

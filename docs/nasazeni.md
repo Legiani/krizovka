@@ -43,11 +43,11 @@ Skript sestavuje pro architekturu serveru (amd64); klientský obraz pouze balí 
 ```sh
 ssh kuba@192.168.1.38 'minikube image load \
   krizovka/api:bootstrap-20261017 krizovka/users:bootstrap-20261017 \
-  krizovka/admin:bootstrap-20261017 krizovka/client:bootstrap-20261017'
+  krizovka/admin:demo-20261017-1 krizovka/client:bootstrap-20261017'
 ssh kuba@192.168.1.38 'kubectl apply -k /home/kuba/krizovka/infra/k8s'
 ```
 
-Při dalších verzích nastavte `KRIZOVKA_IMAGE_TAG` při sestavení a stejný nový tag ve čtyřech obrazech manifestu `applications.yaml`. Neměnné tagy zabrání tomu, aby Kubernetes použil starý obraz z cache. Tag `bootstrap-20261017` identifikuje první inicializaci.
+Při dalších verzích nastavte `KRIZOVKA_IMAGE_TAG` při sestavení a stejný nový tag ve čtyřech obrazech manifestu `applications.yaml`. Pro samostatné vydání velínu lze použít `KRIZOVKA_ADMIN_IMAGE_TAG` a změnit pouze jeho obraz. Neměnné tagy zabrání tomu, aby Kubernetes použil starý obraz z cache. Tag `bootstrap-20261017` identifikuje první inicializaci; `demo-20261017-1` přidává do velínu správu uživatelů, tenantů a ukázková data.
 
 ## Kontrola
 

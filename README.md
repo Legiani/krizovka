@@ -2,7 +2,7 @@
 
 Jeden repozitář pro Flutter (web, iOS, Android), .NET 10 API, vlastní uživatelskou službu převzatou z City+ a Next.js velín. Úložiště je PostgreSQL.
 
-Toto je **vývojový základ**, nikoliv hotový příjem krizových hlášení. Uživatelské obrazovky mají navigaci a zřetelné upozornění; tlačítko pomoci je zatím neaktivní. Hlášení, metodiky, přihlášení v aplikacích, kontaktní profil, mapa a živé přenosy se připojí v dalších krocích. iOS a Android projekty jsou založené; běh na skutečných telefonech ještě není ověřený.
+Toto je **vývojový základ**, nikoliv hotový příjem krizových hlášení. Flutter má navigaci a zřetelné upozornění; tlačítko pomoci je zatím neaktivní. Velín obsahuje interaktivní [demo uživatelů, organizací, hlášení a metodik](docs/velin-demo.md), jehož změny se ukládají v prohlížeči. Přihlášení v aplikacích, skutečná data, kontaktní profil, mapa a živé přenosy se připojí v dalších krocích. iOS a Android projekty jsou založené; běh na skutečných telefonech ještě není ověřený.
 
 ## Struktura
 

@@ -10,6 +10,7 @@ using Krizovka.Users.Application.Core.Identities.Commands.CreateAccountFromIdent
 using Krizovka.Users.Application.Core.Context.DTOs;
 using Krizovka.Users.Application.Core.Interfaces.Persistence;
 using Krizovka.Users.Domain.Enums;
+using Krizovka.Users.Domain.Constants;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
@@ -95,174 +96,7 @@ public class ValidateTokenQueryHandler : IRequestHandler<ValidateTokenQuery, Con
             return await ValidateBackofficeJwtAsync(cleanToken, cancellationToken);
         }
 
-        // Mobile identity provider is not enabled in the initial Krizovka deployment.
-        if (!_configuration.GetValue<bool>("EndUserIdentity:Enabled"))
-            return new ContextValidationResult { Allowed = false };
-
-        // --- KRATOS FALLBACK (User App Tokens) ---
-        // Backoffice no longer uses Kratos, but US still provides token validation for user app tokens
-        HttpClient client;
-        HttpRequestMessage requestMessage;
-
-        if (Guid.TryParse(cleanToken, out _))
-        {
-            // Case 1: Session ID (Mobile/API)
-            client = _httpClientFactory.CreateClient("KratosAdmin");
-            requestMessage = new HttpRequestMessage(HttpMethod.Get, $"/admin/sessions/{cleanToken}?expand=identity");
-        }
-        else if (cleanToken.StartsWith("ory_st_"))
-        {
-            // Case 2: Session Token (Native Mobile App)
-            client = _httpClientFactory.CreateClient("KratosPublic");
-            requestMessage = new HttpRequestMessage(HttpMethod.Get, "/sessions/whoami");
-            requestMessage.Headers.Add("X-Session-Token", cleanToken);
-        }
-        else
-        {
-            // Case 3: Kratos web cookie (Ory Session).
-            // NOTE: Public "Kratos" HttpClient was removed since US is primarily Backoffice.
-            // If we receive an opaque Kratos cookie here, we can't validate it without the public Kratos client.
-            // But User App web UI doesn't use US for validation (it uses Gateway).
-            _logger.LogWarning("Unsupported user session token format.");
-            return new ContextValidationResult { Allowed = false };
-        }
-
-        try
-        {
-            var response = await client.SendAsync(requestMessage, cancellationToken);
-
-            if (!response.IsSuccessStatusCode)
-            {
-                _logger.LogWarning("Kratos validation failed. Status: {StatusCode}", response.StatusCode);
-                return new ContextValidationResult { Allowed = false };
-            }
-
-            var session = await response.Content.ReadFromJsonAsync<KratosSession>(_jsonOptions, cancellationToken);
-
-            // Session Validation (Active & Expiry)
-            if (session == null)
-            {
-                 _logger.LogWarning("Kratos session is null");
-                 return new ContextValidationResult { Allowed = false };
-            }
-
-            if (session.Active != true)
-            {
-                _logger.LogWarning("Kratos session is not active");
-                return new ContextValidationResult { Allowed = false };
-            }
-
-            if (session.ExpiresAt.HasValue && session.ExpiresAt.Value < DateTimeOffset.UtcNow)
-            {
-                _logger.LogWarning("Kratos session has expired at {ExpiresAt}", session.ExpiresAt);
-                return new ContextValidationResult { Allowed = false };
-            }
-
-            if (session.Identity?.Id == null)
-            {
-                _logger.LogWarning("Kratos session identity ID is null");
-                return new ContextValidationResult { Allowed = false };
-            }
-
-            if (!Guid.TryParse(session.Identity.Id, out var identityId))
-            {
-                _logger.LogWarning("Failed to parse Identity ID: {IdentityId}", session.Identity.Id);
-                return new ContextValidationResult { Allowed = false };
-            }
-
-            var account = await _accountRepository.GetByIdentityAsync(identityId, cancellationToken);
-
-            // Fallback: Auto-create account if missing (webhook might have failed)
-            if (account == null)
-            {
-                var allowAutoCreate = _configuration.GetValue<bool>("ALLOW_ACCOUNT_AUTO_CREATE", false);
-
-                if (allowAutoCreate)
-                {
-                    _logger.LogWarning("Account not found for Identity {IdentityId}, creating automatically (webhook fallback)", identityId);
-
-                    try
-                    {
-                        await _mediator.Send(new CreateAccountFromIdentityCommand(identityId, null), cancellationToken);
-
-                        // Retry fetch after creation
-                        account = await _accountRepository.GetByIdentityAsync(identityId, cancellationToken);
-
-                        if (account != null)
-                        {
-                            _logger.LogInformation("Successfully created account {AccountId} for Identity {IdentityId}", account.AccountId, identityId);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        _logger.LogError(ex, "Failed to auto-create account for Identity {IdentityId}", identityId);
-                    }
-                }
-                else
-                {
-                    _logger.LogWarning("Account not found for Identity {IdentityId} and auto-create is DISABLED. Access denied.", identityId);
-                    // Do not return here, simply proceed, account will be null and it will fail later or fall through to BO check
-                }
-            }
-
-            if (account != null)
-            {
-                if (account.Status != AccountStatus.ACTIVE)
-                {
-                    _logger.LogWarning("UserAccount is not ACTIVE. Status: {Status}", account.Status);
-                    return new ContextValidationResult { Allowed = false };
-                }
-
-                var assignments = await _roleAssignmentRepository.GetByAccountIdAsync(account.AccountId, cancellationToken);
-                var now = DateTimeOffset.UtcNow;
-
-                var activeRoles = assignments
-                    .Where(a => a.Status == AccountStatus.ACTIVE
-                        && a.ValidFrom <= now
-                        && (a.ValidTo == null || a.ValidTo > now))
-                    .ToList();
-
-                var allowed = true;
-                var primaryRole = activeRoles.FirstOrDefault();
-
-                var isBackoffice = activeRoles.Any(a => a.RoleCode.StartsWith("BO_") || a.RoleCode.EndsWith("_ADMIN") || a.RoleCode.EndsWith("_MANAGER"));
-
-                return new ContextValidationResult
-                {
-                    Allowed = allowed,
-                    IsValid = allowed,
-                    AccountId = account.AccountId,
-                    IdentityId = identityId,
-                    Operation = "ValidateToken",
-                    IsBackoffice = isBackoffice,
-                    Roles = activeRoles.Select(a => a.RoleCode).ToList(),
-                    Claims = new List<string>(),
-                    Scope = primaryRole != null ? new ScopeInfo
-                    {
-                        ScopeType = primaryRole.ScopeType.ToString(),
-                        ScopeId = primaryRole.ScopeId
-                    } : null,
-                    ScopeAssignments = activeRoles
-                        .Where(a => !string.IsNullOrWhiteSpace(a.ScopeId))
-                        .Select(a => new ScopeAssignmentDto
-                        {
-                            ScopeType = a.ScopeType.ToString(),
-                            ScopeId = a.ScopeId,
-                            RoleCode = a.RoleCode
-                        })
-                        .DistinctBy(a => $"{a.ScopeType}:{a.ScopeId}:{a.RoleCode}")
-                        .ToList()
-                };
-            }
-
-            _logger.LogWarning("UserAccount not found for Identity: {IdentityId}", identityId);
-            return new ContextValidationResult { Allowed = false };
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Exception during token validation");
-            return new ContextValidationResult { Allowed = false };
-        }
+        return new ContextValidationResult { Allowed = false };
     }
 
     private async Task<ContextValidationResult> ValidateBackofficeJwtAsync(string token, CancellationToken cancellationToken)
@@ -376,6 +210,26 @@ public class ValidateTokenQueryHandler : IRequestHandler<ValidateTokenQuery, Con
                 }
             }
 
+            var roles = new List<string> { boUser.Role?.Code ?? "BO_USER" };
+            if (boUser.IsSuperAdmin || boUser.Role?.Code == RoleCodes.BO_SUPER_ADMIN || claimsPrincipal.IsInRole("SuperAdmin"))
+            {
+                if (!roles.Contains("SuperAdmin"))
+                {
+                    roles.Add("SuperAdmin");
+                }
+            }
+
+            Guid? orgId = boUser.OrganizationId;
+            if (!orgId.HasValue)
+            {
+                var orgClaim = claimsPrincipal.FindFirst("OrganizationId")?.Value
+                    ?? claimsPrincipal.FindFirst("org_id")?.Value;
+                if (Guid.TryParse(orgClaim, out var parsedOrg))
+                {
+                    orgId = parsedOrg;
+                }
+            }
+
             return new ContextValidationResult
             {
                 Allowed = true,
@@ -383,9 +237,10 @@ public class ValidateTokenQueryHandler : IRequestHandler<ValidateTokenQuery, Con
                 AccountId = boUser.Id,
                 IdentityId = boUser.IdentityId ?? boUser.Id,
                 ActingAccountId = actingAccountId,
+                OrganizationId = orgId,
                 Operation = "ValidateToken",
                 IsBackoffice = true,
-                Roles = new List<string> { boUser.Role?.Code ?? "BO_USER" },
+                Roles = roles,
                 Claims = permissions,
                 Scope = new ScopeInfo
                 {
@@ -408,22 +263,5 @@ public class ValidateTokenQueryHandler : IRequestHandler<ValidateTokenQuery, Con
             return new ContextValidationResult { Allowed = false };
         }
     }
-
-    private class KratosSession
-    {
-        [JsonPropertyName("active")]
-        public bool? Active { get; set; }
-
-        [JsonPropertyName("expires_at")]
-        public DateTimeOffset? ExpiresAt { get; set; }
-
-        [JsonPropertyName("identity")]
-        public KratosIdentity? Identity { get; set; }
-    }
-
-    private class KratosIdentity
-    {
-        [JsonPropertyName("id")]
-        public string? Id { get; set; }
-    }
 }
+

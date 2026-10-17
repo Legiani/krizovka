@@ -37,6 +37,17 @@ public class BackofficeTokenService : IBackofficeTokenService
             claims.Add(new Claim("role", user.Role.Code));
         }
 
+        if (user.OrganizationId.HasValue)
+        {
+            claims.Add(new Claim("OrganizationId", user.OrganizationId.Value.ToString()));
+            claims.Add(new Claim("org_id", user.OrganizationId.Value.ToString()));
+        }
+
+        if (user.IsSuperAdmin || user.Role?.Code == "SUPER_ADMIN" || user.Role?.Code == "BO_SUPER_ADMIN")
+        {
+            claims.Add(new Claim(ClaimTypes.Role, "SuperAdmin"));
+        }
+
         var tokenDescriptor = new SecurityTokenDescriptor
         {
             Subject = new ClaimsIdentity(claims),

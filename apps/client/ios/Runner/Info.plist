@@ -66,5 +66,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Krizovka potřebuje přístup k poloze pro přesné navedení záchranných složek k místu incidentu.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Krizovka potřebuje přístup k poloze pro lokalizaci incidentu i na pozadí během tísňového stavu.</string>
 </dict>
 </plist>

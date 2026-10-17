@@ -124,7 +124,7 @@ spec:
     spec:
       containers:
         - name: admin
-          image: krizovka/admin:bootstrap-20261017
+          image: krizovka/admin:demo-20261017-1
           imagePullPolicy: Never
           env:
             - name: API_INTERNAL_URL

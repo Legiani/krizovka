@@ -25,6 +25,7 @@
   <Folder Name="/Tests/">
     <Project Path="Tests/Krizovka.Architecture.Tests/Krizovka.Architecture.Tests.csproj" />
     <Project Path="Tests/Krizovka.Users.Api.Tests/Krizovka.Users.Api.Tests.csproj" />
+    <Project Path="Tests/Krizovka.Api.Tests/Krizovka.Api.Tests.csproj" />
   </Folder>
   <Project Path="Krizovka.Api/Krizovka.Api.csproj" />
 </Solution>

@@ -35,5 +35,7 @@
 .vscode/
 .idea/
 
-
 **/*.tsbuildinfo
+*.db
+*.db-shm
+*.db-wal

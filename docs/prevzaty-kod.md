@@ -28,6 +28,8 @@ Povinná městská lokalita, hlasování, městské tagy, životní cyklus komun
 
 Next.js přebírá `ModulePage`, `PageHeader`, typy chyb API a pomocnou funkci pro výpis položek. Flutter přebírá síťové chyby, rušení požadavků a práci se zdrojem obrázku ze `zmente-to-flutter`; navigace a obrazovky jsou upravené pro Krizovku. Celá původní aplikace ani její přihlášení do Lítačky se nekopírují.
 
+Velín dále přebírá `TableCustom`, `StatusBadge`, `ConfirmModal`, upravené seznamy správců a organizací City+ a mapový modul incidentů (`IncidentMapModule`, `MapSidebar`, `ReportMapLayer`, `ReportDetailMapPanel`, `useMapTileStyle` s OpenFreeMap podkladem bez nutnosti API klíče). Nad nimi je připravený [interaktivní mock správy](velin-demo.md) s fiktivními tenanty, členstvím a ukázkovým obsahem. Tento frontend zatím nevytváří účty v US; propojení přijde s autentizací a ověřováním oprávnění na backendu.
+
 Architektonické testy jsou upravené ze City+ `DomainRulesTests` a `ServiceIsolationTests`. Kontrolují explicitně načtené a neprázdné sestavení uživatelské domény a oddělení obou backendů; nevyžadují sestavení všech služeb City+. Další čtyři testovací případy ověřují odmítnutí neautorizovaných webhooků.
 
 Původní HTML s metodikami zůstává podkladem. Obsah se zatím automaticky neimportuje do komerční aplikace; jeho licenční omezení je popsané v produktovém záměru.

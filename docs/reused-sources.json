@@ -1743,6 +1743,46 @@
       "sha256": "673f107dd9c8ea5637c5d81f085ba3d4f2adc1bb9007efbb56654e7454c30c28",
       "repository": "zmente-to-flutter",
       "revision": "6f3cb0f8c64b4516be6033d41efb48e8762ccea6"
+    },
+    {
+      "source": "src/Apps/Frontend/packages/core/src/shared/components/UI/TableCustom.tsx",
+      "target": "apps/admin/src/shared/components/TableCustom.tsx",
+      "sha256": "caea40180a98d4cd74dd161fd5693cd1f1f83f1e454883c184666a2f80bd6582",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd",
+      "adaptation": "Krizovka demo administration; original dependencies and product-specific fields replaced."
+    },
+    {
+      "source": "src/Apps/Frontend/packages/core/src/shared/components/UI/StatusBadge.tsx",
+      "target": "apps/admin/src/shared/components/StatusBadge.tsx",
+      "sha256": "b741d8176ed9a613c1b643b1e909547455997a14a08c2dde2bae6cecec8ed83c",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd",
+      "adaptation": "Krizovka demo administration; original dependencies and product-specific fields replaced."
+    },
+    {
+      "source": "src/Apps/Frontend/packages/core/src/shared/components/UI/ConfirmModal.tsx",
+      "target": "apps/admin/src/shared/components/ConfirmModal.tsx",
+      "sha256": "ba95afe44569f2237b955b377af215d5c2e33b4f7dd840f0385cbc7f469106ee",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd",
+      "adaptation": "Krizovka demo administration; original dependencies and product-specific fields replaced."
+    },
+    {
+      "source": "src/Apps/Frontend/apps/shell/src/modules/access-control/components/AdminList.tsx",
+      "target": "apps/admin/src/features/users/UserList.tsx",
+      "sha256": "62bee7f744ac3181aeb9a591a06b70af8ddb128d6cea29844ac42cd1495d117a",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd",
+      "adaptation": "Krizovka demo administration; original dependencies and product-specific fields replaced."
+    },
+    {
+      "source": "src/Apps/Frontend/apps/shell/src/modules/providers/components/ProvidersList.tsx",
+      "target": "apps/admin/src/features/organizations/OrganizationList.tsx",
+      "sha256": "f7fc0fb8122eca24109b4b5274d0038010da0282816ec6dca76353e0fd4c67b0",
+      "repository": "city-plus",
+      "revision": "ba0d7714b14c21b6adf0f6d15e1118f432ae4acd",
+      "adaptation": "Krizovka demo administration; original dependencies and product-specific fields replaced."
     }
   ]
 }
