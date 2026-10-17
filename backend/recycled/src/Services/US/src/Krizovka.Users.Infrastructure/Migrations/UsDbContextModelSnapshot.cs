@@ -193,6 +193,10 @@ namespace Krizovka.Users.Infrastructure.Migrations
                         .HasColumnType("character varying(150)")
                         .HasColumnName("last_name");
 
+                    b.Property<Guid?>("OrganizationId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("organization_id");
+
                     b.Property<string>("PasswordHash")
                         .IsRequired()
                         .HasColumnType("text")
