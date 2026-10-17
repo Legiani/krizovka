@@ -12,10 +12,12 @@ spec:
       labels:
         app: krizovka-api
     spec:
+      imagePullSecrets:
+        - name: github-registry-secret
       containers:
         - name: api
-          image: krizovka/api:bootstrap-20261017
-          imagePullPolicy: Never
+          image: ghcr.io/legiani/krizovka/api:latest
+          imagePullPolicy: Always
           envFrom:
             - secretRef:
                 name: api-credentials
@@ -66,10 +68,12 @@ spec:
       labels:
         app: krizovka-users
     spec:
+      imagePullSecrets:
+        - name: github-registry-secret
       containers:
         - name: users
-          image: krizovka/users:bootstrap-20261017
-          imagePullPolicy: Never
+          image: ghcr.io/legiani/krizovka/users:latest
+          imagePullPolicy: Always
           envFrom:
             - secretRef:
                 name: users-credentials
@@ -122,10 +126,12 @@ spec:
       labels:
         app: krizovka-admin
     spec:
+      imagePullSecrets:
+        - name: github-registry-secret
       containers:
         - name: admin
-          image: krizovka/admin:demo-20261017-1
-          imagePullPolicy: Never
+          image: ghcr.io/legiani/krizovka/admin:latest
+          imagePullPolicy: Always
           env:
             - name: API_INTERNAL_URL
               value: http://krizovka-api:8080
@@ -166,10 +172,12 @@ spec:
       labels:
         app: krizovka-client
     spec:
+      imagePullSecrets:
+        - name: github-registry-secret
       containers:
         - name: client
-          image: krizovka/client:bootstrap-20261017
-          imagePullPolicy: Never
+          image: ghcr.io/legiani/krizovka/client:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
           resources:
