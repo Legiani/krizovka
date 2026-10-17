@@ -9,8 +9,18 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    # 1. Klientská mobilní/webová aplikace Krizovka
+    # 1. Klientská aplikace (Flutter web)
     - host: krizovka.qubert.cz
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: krizovka-client
+                port:
+                  number: 80
+    - host: krizovka.192.168.1.38.nip.io
       http:
         paths:
           - path: /
@@ -31,7 +41,7 @@ spec:
                 port:
                   number: 80
 
-    # 2. Krizový Velín (Next.js admin dashboard)
+    # 2. Krizový Velín (Next.js 16 admin dashboard)
     - host: krizovka-velin.qubert.cz
       http:
         paths:
@@ -52,6 +62,16 @@ spec:
                 name: krizovka-admin
                 port:
                   number: 3000
+    - host: velin.192.168.1.38.nip.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: krizovka-admin
+                port:
+                  number: 3000
     - host: velin.krizovka.local
       http:
         paths:
@@ -63,8 +83,18 @@ spec:
                 port:
                   number: 3000
 
-    # 3. Krizovka Backend API (.NET 10)
+    # 3. Backend API (.NET 10)
     - host: krizovka-api.qubert.cz
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: krizovka-api
+                port:
+                  number: 8080
+    - host: api.192.168.1.38.nip.io
       http:
         paths:
           - path: /
@@ -85,7 +115,7 @@ spec:
                 port:
                   number: 8080
 
-    # 4. Fallback pro přímé volání přes IP (192.168.1.38) bez Host hlavičky
+    # 4. Přímé volání přes surovou IP http://192.168.1.38 bez domény
     - http:
         paths:
           - path: /
