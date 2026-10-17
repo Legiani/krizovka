@@ -85,9 +85,8 @@ spec:
                 port:
                   number: 8080
 
-    # 4. Přímý přístup přes IP serveru (192.168.1.38)
-    - host: 192.168.1.38
-      http:
+    # 4. Fallback pro přímé volání přes IP (192.168.1.38) bez Host hlavičky
+    - http:
         paths:
           - path: /
             pathType: Prefix
