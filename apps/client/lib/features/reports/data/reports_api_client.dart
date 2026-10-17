@@ -1,10 +1,11 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:krizovka_client/features/reports/models/report_models.dart';
 
 class ApiBaseUrlNotifier extends Notifier<String> {
   @override
-  String build() => 'http://127.0.0.1:5080';
+  String build() => kIsWeb ? Uri.base.origin : 'http://127.0.0.1:5080';
 
   void setUrl(String url) => state = url;
 }

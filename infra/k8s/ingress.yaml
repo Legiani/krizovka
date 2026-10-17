@@ -1,0 +1,98 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: krizovka-ingress
+  namespace: krizovka
+  annotations:
+    ingress.class: nginx
+    nginx.ingress.kubernetes.io/proxy-body-size: "64m"
+spec:
+  ingressClassName: nginx
+  rules:
+    # 1. Klientská mobilní/webová aplikace Krizovka
+    - host: krizovka.qubert.cz
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: krizovka-client
+                port:
+                  number: 80
+    - host: app.krizovka.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: krizovka-client
+                port:
+                  number: 80
+
+    # 2. Krizový Velín (Next.js admin dashboard)
+    - host: krizovka-velin.qubert.cz
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: krizovka-admin
+                port:
+                  number: 3000
+    - host: krizovka-admin.qubert.cz
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: krizovka-admin
+                port:
+                  number: 3000
+    - host: velin.krizovka.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: krizovka-admin
+                port:
+                  number: 3000
+
+    # 3. Krizovka Backend API (.NET 10)
+    - host: krizovka-api.qubert.cz
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: krizovka-api
+                port:
+                  number: 8080
+    - host: api.krizovka.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: krizovka-api
+                port:
+                  number: 8080
+
+    # 4. Přímý přístup přes IP serveru (192.168.1.38)
+    - host: 192.168.1.38
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: krizovka-client
+                port:
+                  number: 80
