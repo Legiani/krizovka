@@ -2,31 +2,37 @@
 
 Server `kuba@192.168.1.38` běží Minikube s Ingress kontrolerem a ArgoCD. Aplikace Krizovka běží v plně izolovaném namespace `krizovka`.
 
-## Přístup k aplikacím na interní síti (192.168.1.38)
+## Přístup k aplikacím
 
-Ingress kontroler naslouchá na portu `80` serveru `192.168.1.38`.
+### 1. Veřejný přístup přes Cloudflare Zero Trust Tunnel (Produkce / MVP náhled)
+Tunel běží v klastru a směruje veřejné HTTPS domény přímo na interní Kubernetes Services (bez nutnosti otevírání portů na routeru či veřejné IP):
 
-### 1. Klientská aplikace (Flutter Web)
-- **Výchozí URL (přímá IP):** `http://192.168.1.38/`
-- **DNS / Host:** `http://krizovka.qubert.cz/` nebo `http://app.krizovka.local/`
-- Všechna API volání `/api/` jsou na úrovni NGINX kontejneru automaticky směrována na interní backend `http://krizovka-api:8080`.
+| Veřejná URL (Destination) | Interní Service v klastru | Účel |
+| --- | --- | --- |
+| `https://krizovka.qubert.cz` | `http://krizovka-client.krizovka.svc.cluster.local:80` | Klientská aplikace (Flutter Web pro občana) |
+| `https://krizovka-velin.qubert.cz` | `http://krizovka-admin.krizovka.svc.cluster.local:3000` | Krizový Velín (Next.js 16 dohledové centrum) |
 
-### 2. Krizový Velín (Next.js 16 Admin Dashboard)
-- **URL:** `http://krizovka-velin.qubert.cz/` nebo `http://krizovka-admin.qubert.cz/` nebo `http://velin.krizovka.local/`
-- **Výchozí přihlašovací účty:**
-  - **Operátor:** `operator@krizovka.cz` / `Operator123!` (organizace: Kampus Sever, role: OPERATOR)
-  - **Super Admin:** `superadmin@krizovka.cz` / `SuperAdmin123!` (role: SUPER_ADMIN)
-
-### 3. Backend API (.NET 10)
-- **URL:** `http://krizovka-api.qubert.cz/` nebo `http://api.krizovka.local/`
-- **Health checky:**
-  - `http://krizovka-api.qubert.cz/health/live`
-  - `http://krizovka-api.qubert.cz/health/ready`
+> [!NOTE]
+> **API není nutné vystavovat veřejně:**
+> - Flutter Web klient volá `/api/` na svém vlastním originu (`krizovka.qubert.cz/api/...`), NGINX v podu jej interně přesměruje na `http://krizovka-api:8080`.
+> - Next.js Velín volá `/api/` na svém originu (`krizovka-velin.qubert.cz/api/...`), serverový proxy handler v Next.js jej interně přepošle na `krizovka-api:8080` a `krizovka-users:8080`.
 
 ---
 
-## Lokální DNS `/etc/hosts` (volitelné pro vývojářské stroje)
-Pro pohodlné otevírání domén z prohlížeče bez nutnosti veřejného DNS:
+### 2. Lokální přístup v LAN síti (192.168.1.38)
+Přímý přístup bez nutnosti Cloudflare tunelu přes NGINX Ingress kontroler:
+- **Klientská aplikace:** [http://krizovka.192.168.1.38.nip.io/](http://krizovka.192.168.1.38.nip.io/) (nebo `http://192.168.1.38/`)
+- **Krizový Velín:** [http://velin.192.168.1.38.nip.io/](http://velin.192.168.1.38.nip.io/)
+- **API Healthcheck:** [http://api.192.168.1.38.nip.io/health/live](http://api.192.168.1.38.nip.io/health/live)
+
+#### Výchozí přihlašovací účty pro Velín:
+- **Operátor:** `operator@krizovka.cz` / `Operator123!` (organizace: Kampus Sever, role: `OPERATOR`)
+- **Super Admin:** `superadmin@krizovka.cz` / `SuperAdmin123!` (role: `SUPER_ADMIN`)
+
+---
+
+### 3. Lokální DNS `/etc/hosts` (volitelné pro vývojářské stroje)
+Pro pohodlné otevírání vývojových domén v LAN bez `nip.io`:
 ```
 192.168.1.38 krizovka.qubert.cz krizovka-velin.qubert.cz krizovka-admin.qubert.cz krizovka-api.qubert.cz velin.krizovka.local app.krizovka.local api.krizovka.local
 ```
