@@ -302,9 +302,60 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             ),
           ),
+          const SizedBox(height: 12),
+          OutlinedButton.icon(
+            onPressed: _clearData,
+            icon: const Icon(Icons.delete_outline_rounded, size: 18, color: Color(0xFFDC2626)),
+            label: const Text(
+              'Vymazat moje údaje z tohoto zařízení',
+              style: TextStyle(color: Color(0xFFDC2626), fontWeight: FontWeight.w600),
+            ),
+            style: OutlinedButton.styleFrom(
+              side: const BorderSide(color: Color(0xFFFECACA)),
+              padding: const EdgeInsets.symmetric(vertical: 14),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            ),
+          ),
           const SizedBox(height: 24),
         ],
       ),
     );
+  }
+
+  Future<void> _clearData() async {
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Vymazat osobní údaje?'),
+        content: const Text(
+          'Všechny lokálně uložené kontaktní údaje budou ze zařízení odstraněny.',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: const Text('Zrušit'),
+          ),
+          FilledButton(
+            style: FilledButton.styleFrom(backgroundColor: const Color(0xFFDC2626)),
+            onPressed: () => Navigator.of(context).pop(true),
+            child: const Text('Vymazat'),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmed == true) {
+      await ref.read(userProfileProvider.notifier).clearProfile();
+      _firstNameController.clear();
+      _lastNameController.clear();
+      _personnelController.clear();
+      _phoneController.clear();
+      _emailController.clear();
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Osobní údaje byly ze zařízení vymazány.')),
+        );
+      }
+    }
   }
 }

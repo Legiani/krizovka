@@ -7,6 +7,7 @@ import 'package:krizovka_client/features/reports/data/reports_api_client.dart';
 import 'package:krizovka_client/features/reports/models/report_models.dart';
 import 'package:krizovka_client/features/reports/services/media_service.dart';
 import 'package:krizovka_client/features/reports/state/emergency_state.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class TestReportsApiClient implements ReportsApiClient {
   ReportDetail? mockReport;
@@ -223,6 +224,10 @@ class MockLiveStreamService implements LiveStreamService {
 }
 
 void main() {
+  setUp(() {
+    SharedPreferences.setMockInitialValues({'krizovka_onboarding_completed': true});
+  });
+
   testWidgets('text report dialog submits report with custom description', (tester) async {
     final mockClient = TestReportsApiClient();
     final router = createRouter();

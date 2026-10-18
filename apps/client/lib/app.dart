@@ -3,6 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:krizovka_client/features/geofencing/state/geofence_state.dart';
 import 'package:krizovka_client/features/guides/guides_page.dart';
+import 'package:krizovka_client/features/onboarding/state/onboarding_state.dart';
+import 'package:krizovka_client/features/onboarding/ui/onboarding_dialog.dart';
+import 'package:krizovka_client/features/profile/profile_provider.dart';
 import 'package:krizovka_client/features/reports/data/reports_api_client.dart';
 import 'package:krizovka_client/features/reports/models/report_models.dart';
 import 'package:krizovka_client/features/reports/services/media_service.dart';
@@ -120,8 +123,14 @@ class _AppShellState extends ConsumerState<_AppShell> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      await ref.read(userProfileProvider.notifier).loadFromPrefs();
       ref.read(geofenceNotifierProvider.notifier).bootstrap();
+      final onboarding = ref.read(onboardingNotifierProvider.notifier);
+      await onboarding.checkOnboarding();
+      if (!ref.read(onboardingNotifierProvider).hasCompletedOnboarding && mounted) {
+        OnboardingDialog.show(context);
+      }
     });
   }
 

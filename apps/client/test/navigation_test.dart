@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:krizovka_client/app.dart';
 import 'package:krizovka_client/features/reports/data/reports_api_client.dart';
 import 'package:krizovka_client/features/reports/models/report_models.dart';
@@ -141,6 +142,10 @@ class MockReportsApiClient implements ReportsApiClient {
 }
 
 void main() {
+  setUp(() {
+    SharedPreferences.setMockInitialValues({'krizovka_onboarding_completed': true});
+  });
+
   test('MockReportsApiClient handles attachment upload and returns attachment', () async {
     final client = MockReportsApiClient();
     await client.createReport(const CreateReportRequest(
