@@ -59,6 +59,8 @@ Přihlášení, příslušnost k organizaci, kontakty a oprávnění zařízení
 
 Uživatel vyplní **jméno, příjmení, osobní číslo, telefon a e-mail**. Údaje se uloží do telefonu, případně na webu do chráněné cookie, a při hlášení se automaticky připojí. Může je později změnit nebo z tohoto zařízení vymazat. Do již doručených hlášení se změny zpětně nepromítají.
 
+Při prvním spuštění aplikace (onboarding) je uživatel srozumitelně seznámen s účelem systému Krizovka a vyzván k úvodnímu vyplnění kontaktního profilu. Onboarding vysvětluje, že údaje slouží operátorům velínu pro rychlou identifikaci v nouzi a jsou uloženy výhradně lokálně v zařízení bez centrálního registru (GDPR minimalizace). Uživatel může profil vyplnit ihned nebo krok odložit na později.
+
 Profil je uložený pro konkrétní zařízení nebo prohlížeč; na novém zařízení se vyplní znovu. Přihlašovací oprávnění a kontaktní profil jsou oddělené věci. V Nastavení je vidět aktivní organizace a připravenost oprávnění kamery, mikrofonu a polohy. Má-li uživatel více členství, organizaci zvolí předem, aby ji nemusel vybírat při incidentu.
 
 ## 3. Rychlost, poloha a tichost

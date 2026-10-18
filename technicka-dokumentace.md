@@ -52,8 +52,9 @@ Přihlášení, aktivní organizace, kontakty a oprávnění telefonu se připra
 
 Uživatel zde vyplní a později upraví **jméno, příjmení, osobní číslo, telefon a e-mail**. Může zkontrolovat aktivní organizaci, připravenost kamery/mikrofonu/polohy a použít **Vymazat moje údaje z tohoto zařízení**.
 
-- **iOS a Android:** malý profil v chráněném úložišti telefonu, s využitím stávajícího `flutter_secure_storage`.
+- **iOS a Android:** malý profil v chráněném úložišti telefonu, s využitím stávajícího `flutter_secure_storage` nebo `shared_preferences`.
 - **Web:** trvalá profilová cookie nastavená backendem, šifrovaná a chráněná proti změně pomocí ASP.NET Core Data Protection. Použije `Secure`, `HttpOnly`, `SameSite=Lax` a vazbu na účet a organizaci. Formulář ji načte a uloží přes API; JavaScript nemusí přímo číst cookie. [Data Protection](https://learn.microsoft.com/en-us/aspnet/core/security/data-protection/consumer-apis/overview?view=aspnetcore-10.0), [atributy cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Set-Cookie).
+- **První spuštění (Onboarding, UC-14):** Při prvním otevření aplikace klientská vrstva zkontroluje lokální příznak `hasCompletedOnboarding`. Pokud chybí, zobrazí se uvítací dialog vysvětlující funkci aplikace a účel lokálního profilu. Uživatel může profil zadat ihned nebo krok odložit. Nastavením příznaku se zamezí opakovanému zobrazení.
 
 Webový profil projde přes API při uložení cookie, ale nevzniká tím další centrální databázový profil kontaktů. U hlášení už server uloží jejich kopii. Cookie obsahuje jen malé textové údaje, má omezenou platnost a velikost; fotografie, audio ani video do ní nepatří. Data Protection klíče musí přetrvat restart backendu. Odstranění či expirace cookie znamená nutnost profil znovu vyplnit.
 

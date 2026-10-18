@@ -23,6 +23,7 @@
 | **UC-11** | Převzetí (klonování) šablony z knihovny do organizace | **P2 (Vysoká)** | Správce organizace | Next.js velín, Krizovka.Api |
 | **UC-12** | Editace, lokalizace a publikace metodiky | **P2 (Vysoká)** | Správce organizace | Next.js velín, Krizovka.Api, Flutter |
 | **UC-13** | Geofencing a směrování poplachu na alokovaný velín | **P1 (Kritická)** | Oznamovatel / Geofence | Flutter (GPS), Krizovka.Api, Velín |
+| **UC-14** | První spuštění aplikace, onboarding a inicializace profilu | **P2 (Vysoká)** | Nový uživatel / Oznamovatel | Flutter (Onboarding dialog, lokální úložiště) |
 
 ---
 
@@ -368,6 +369,38 @@
 
 ---
 
+### UC-14: První spuštění aplikace, onboarding a inicializace profilu
+- **Cíl:** Seznámit uživatele při prvním spuštění aplikace s účelem krizového systému Krizovka a vyzvat jej k předvyplnění lokálního kontaktního profilu s vysvětlením, k čemu slouží a jak je chráněno soukromí.
+- **Aktéři:** Nový uživatel / Oznamovatel v areálu či organizaci.
+- **Vstupní podmínky:**
+  1. Aplikace byla nainstalována nebo spuštěna v prohlížeči poprvé.
+  2. V lokálním úložišti (`SharedPreferences`) dosud neexistuje příznak dokončení onboardingu (`hasCompletedOnboarding`).
+- **Hlavní scénář (Happy Path):**
+  1. Při startu klientské aplikace systém ověří existenci klíče `hasCompletedOnboarding` v lokálním úložišti.
+  2. Klíč neexistuje -> aplikace zobrazí uvítací Onboarding modal:
+     - **Co je Krizovka:** Tichý a okamžitý krizový komunikační kanál pro přivolání pomoci v areálu instituce jedním dotykem bez nutnosti mluvit, s možností odeslat doplňující zprávy, fotografie, hlasový záznam a sledovat reakci velínu v reálném čase.
+     - **K čemu slouží profil:** Jméno, telefon a osobní/studentské číslo slouží operátorům velínu a záchranným složkám k rychlé identifikaci ohrožené osoby a koordinaci zásahu.
+     - **Ochrana soukromí (GDPR minimalizace):** Profil je uložen **výhradně lokálně v zařízení**. Žádná centrální databáze uživatelů se nevede; data se přikládají jako snapshot pouze k odeslanému tísňovému hlášení.
+  3. Dialog nabídne vstupní pole pro rychlé vyplnění profilu:
+     - Jméno a Příjmení
+     - Telefonní číslo
+     - Osobní / studentské číslo (volitelné)
+     - E-mail (volitelný)
+  4. Uživatel zadá své údaje a stiskne tlačítko **Uložit a pokračovat**.
+  5. Klient uloží data do `SharedPreferences`, nastaví `hasCompletedOnboarding = true` a dialog zavře.
+  6. Aplikace se přepne na hlavní obrazovku `Hlášení` s připraveným tísňovým tlačítkem.
+- **Alternativní / Chybové toky:**
+  - *Uživatel chce vyplnění odložit:* Uživatel klikne na **Doplnit později** -> aplikace nastaví `hasCompletedOnboarding = true`, dialog se zavře a uživatel je informován, že profil může kdykoliv doplnit v sekci `Nastavení`. Tísňové tlačítko zůstává plně funkční (hlášení odejde jako anonymní).
+  - *Opakované otevření aplikace:* Klíč `hasCompletedOnboarding` již existuje -> onboarding se nezobrazuje, aplikace startuje přímo do krizového rozhraní.
+  - *Vymazání dat v nastavení:* Pokud uživatel v `Nastavení` zvolí smazání dat profilu, může být volitelně resetován i příznak onboardingu.
+- **Akceptační kritéria:**
+  - Onboarding se zobrazí automaticky pouze při prvním otevření aplikace.
+  - Srozumitelná edukace o principu tichého hlášení a významu údajů pro záchranáře.
+  - Okamžitá lokální persistence profilu i příznaku dokončení.
+  - Možnost přeskočení bez blokování základní krizové funkčnosti.
+
+---
+
 ## 🧪 Validační matice a checklist funkcionalit
 
 | Funkcionalita | Backend API | Backend Users | Next.js Velín | Flutter Klient | Automatizovaný test |
@@ -386,6 +419,7 @@
 | **Knihovna šablon & klonování (UC-11)** | ⏳ Fáze 4 | N/A | ⏳ Fáze 4 | N/A | Backend & Admin check |
 | **Editor a publikace metodik (UC-12)** | ⏳ Fáze 4 | N/A | ⏳ Fáze 4 | ⏳ Fáze 4 | Admin check & API tests |
 | **Geofencing a směrování poplachu (UC-13)** | ⏳ Fáze 3 | N/A | ⏳ Zóny areálů | ⏳ GPS detekce | Geocache & polygon tests |
+| **Onboarding a inicializace profilu (UC-14)** | N/A | N/A | N/A | ⏳ Fáze 4 | Onboarding dialog tests |
 | **DB správa organizací (Tenancy)** | ⏳ Fáze 3 | N/A | ⏳ DemoStore | ✅ Nastavení | Připraveno k implementaci |
 
 ---
