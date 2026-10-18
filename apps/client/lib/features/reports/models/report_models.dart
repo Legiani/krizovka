@@ -159,6 +159,13 @@ class ReportHistoryItem {
     metadata: json['metadata'] as String?,
     createdAt: DateTime.parse(json['createdAt'] as String),
   );
+
+  bool get isOperatorMessage =>
+      action == 'OperatorMessageAdded' ||
+      (action == 'MessageAdded' &&
+          (metadata == 'operator' ||
+              (metadata != null && metadata!.toLowerCase().contains('operator')) ||
+              metadata == 'Velín'));
 }
 
 class StreamSession {

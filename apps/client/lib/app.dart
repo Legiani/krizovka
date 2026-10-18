@@ -1029,14 +1029,32 @@ class _ReportsPageState extends ConsumerState<_ReportsPage> {
     final String content;
     final String? subtitle;
 
+    final isOperatorMsg = item.isOperatorMessage;
+
     switch (item.action) {
-      case 'MessageAdded':
-        badgeBg = const Color(0xFFEFF6FF);
-        badgeText = const Color(0xFF1D4ED8);
-        badgeLabel = '💬 Vy (občan)';
-        icon = Icons.message_rounded;
+      case 'OperatorMessageAdded':
+        badgeBg = const Color(0xFFFEF3C7);
+        badgeText = const Color(0xFFB45309);
+        badgeLabel = '🏢 Zpráva z velínu';
+        icon = Icons.support_agent_rounded;
         content = item.newValue ?? '';
-        subtitle = null;
+        subtitle = item.metadata != null && item.metadata != 'operator' ? item.metadata : null;
+      case 'MessageAdded':
+        if (isOperatorMsg) {
+          badgeBg = const Color(0xFFFEF3C7);
+          badgeText = const Color(0xFFB45309);
+          badgeLabel = '🏢 Zpráva z velínu';
+          icon = Icons.support_agent_rounded;
+          content = item.newValue ?? '';
+          subtitle = item.metadata != null && item.metadata != 'operator' ? item.metadata : null;
+        } else {
+          badgeBg = const Color(0xFFEFF6FF);
+          badgeText = const Color(0xFF1D4ED8);
+          badgeLabel = '💬 Vy (občan)';
+          icon = Icons.message_rounded;
+          content = item.newValue ?? '';
+          subtitle = null;
+        }
       case 'StatusChange':
         final isAccepted = (item.newValue ?? '').toLowerCase() == 'accepted';
         badgeBg = isAccepted ? const Color(0xFFECFDF5) : const Color(0xFFF1F5F9);
@@ -1088,9 +1106,12 @@ class _ReportsPageState extends ConsumerState<_ReportsPage> {
       margin: const EdgeInsets.only(bottom: 8),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: isOperatorMsg ? const Color(0xFFFFFBEB) : Colors.white,
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: const Color(0xFFE2E8F0)),
+        border: Border.all(
+          color: isOperatorMsg ? const Color(0xFFFDE68A) : const Color(0xFFE2E8F0),
+          width: isOperatorMsg ? 1.5 : 1.0,
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

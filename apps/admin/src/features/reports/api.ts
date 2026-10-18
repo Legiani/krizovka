@@ -130,3 +130,31 @@ export async function uploadReportAttachment(
 
   return res.json();
 }
+
+export async function sendReportMessage(
+  id: string,
+  message: string
+): Promise<ReportDetail> {
+  const res = await fetch(`/api/reports/${id}/messages`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+    body: JSON.stringify({ message }),
+  });
+
+  if (!res.ok) {
+    let msg = `Chyba při odesílání zprávy: ${res.statusText}`;
+    try {
+      const err = await res.json();
+      msg = err.error || err.detail || msg;
+    } catch {
+      // fallback
+    }
+    throw new Error(msg);
+  }
+
+  return res.json();
+}
+

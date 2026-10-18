@@ -263,6 +263,65 @@ public class ReportTenantSecurityTests : IClassFixture<WebApplicationFactory<Pro
 
         Assert.Equal(HttpStatusCode.Forbidden, response.StatusCode);
     }
+
+    [Fact]
+    public async Task Operator_Can_Add_Message_To_Own_Organization_Report()
+    {
+        var (reportA, _) = await SeedReportsAsync();
+
+        var request = new HttpRequestMessage(HttpMethod.Post, $"/api/reports/{reportA.Id}/messages")
+        {
+            Content = JsonContent.Create(new AddReportMessageRequest("Hlídka vyjíždí na místo."))
+        };
+        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", $"operator-org-{OrgA}");
+
+        var response = await _client.SendAsync(request);
+
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        var detail = await response.Content.ReadFromJsonAsync<ReportDetailDto>();
+        Assert.NotNull(detail);
+        var opMsg = detail.History.FirstOrDefault(h => h.Action == "OperatorMessageAdded");
+        Assert.NotNull(opMsg);
+        Assert.Equal("Hlídka vyjíždí na místo.", opMsg.NewValue);
+        Assert.Equal("operator", opMsg.Metadata);
+    }
+
+    [Fact]
+    public async Task Operator_Cannot_Add_Message_To_Another_Organization_Report()
+    {
+        var (_, reportB) = await SeedReportsAsync();
+
+        var request = new HttpRequestMessage(HttpMethod.Post, $"/api/reports/{reportB.Id}/messages")
+        {
+            Content = JsonContent.Create(new AddReportMessageRequest("Neoprávněná zpráva"))
+        };
+        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", $"operator-org-{OrgA}");
+
+        var response = await _client.SendAsync(request);
+
+        Assert.Equal(HttpStatusCode.Forbidden, response.StatusCode);
+    }
+
+    [Fact]
+    public async Task Anonymous_Citizen_Can_Add_Supplemental_Message()
+    {
+        var (reportA, _) = await SeedReportsAsync();
+
+        var request = new HttpRequestMessage(HttpMethod.Post, $"/api/reports/{reportA.Id}/messages")
+        {
+            Content = JsonContent.Create(new AddReportMessageRequest("Jsem ve 3. patře."))
+        };
+
+        var response = await _client.SendAsync(request);
+
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        var detail = await response.Content.ReadFromJsonAsync<ReportDetailDto>();
+        Assert.NotNull(detail);
+        var citizenMsg = detail.History.FirstOrDefault(h => h.Action == "MessageAdded");
+        Assert.NotNull(citizenMsg);
+        Assert.Equal("Jsem ve 3. patře.", citizenMsg.NewValue);
+        Assert.Equal("citizen", citizenMsg.Metadata);
+    }
 }
 
 public class TestUsAuthClient : IUsAuthClient

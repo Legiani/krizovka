@@ -13,6 +13,7 @@ import {
   fetchReportDetail,
   updateReportStatus,
   uploadReportAttachment,
+  sendReportMessage,
   type ReportSummary,
   type ReportDetail,
 } from '@/features/reports/api';
@@ -61,6 +62,27 @@ export default function ReportsPage() {
     if (bytes < 1024) return `${bytes} B`;
     if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
     return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+  };
+
+  const [operatorMessage, setOperatorMessage] = useState('');
+  const [sendingMessage, setSendingMessage] = useState(false);
+  const [messageError, setMessageError] = useState('');
+
+  const handleSendOperatorMessage = async (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+    if (!operatorMessage.trim() || !selectedId) return;
+
+    setSendingMessage(true);
+    setMessageError('');
+    try {
+      const updated = await sendReportMessage(selectedId, operatorMessage.trim());
+      setSelectedDetail(updated);
+      setOperatorMessage('');
+    } catch (err: unknown) {
+      setMessageError(err instanceof Error ? err.message : 'Chyba při odesílání zprávy.');
+    } finally {
+      setSendingMessage(false);
+    }
   };
 
   const handleUploadAttachment = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -135,6 +157,8 @@ export default function ReportsPage() {
 
   // Load detail and keep live polling while selected
   useEffect(() => {
+    setOperatorMessage('');
+    setMessageError('');
     if (!selectedId) {
       setSelectedDetail(null);
       return;
@@ -529,25 +553,97 @@ export default function ReportsPage() {
                 <div className="fs-5 fw-semibold">{selected.text}</div>
               </div>
 
+              {/* Komunikace incidentu & Odpověď z velínu */}
               {(() => {
-                const supplementalMessages = selectedDetail?.history?.filter(h => h.action === 'MessageAdded') || [];
-                if (supplementalMessages.length === 0) return null;
+                const commMessages = (selectedDetail?.history || [])
+                  .filter(h => h.action === 'MessageAdded' || h.action === 'OperatorMessageAdded')
+                  .slice()
+                  .sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
 
                 return (
                   <div className="p-3 bg-white rounded border mb-3">
-                    <div className="small text-uppercase text-secondary fw-bold mb-2">
-                      💬 Doplňující zprávy od oznamovatele ({supplementalMessages.length})
+                    <div className="d-flex align-items-center justify-content-between mb-2">
+                      <div className="small text-uppercase text-secondary fw-bold">
+                        💬 Komunikace incidentu {commMessages.length > 0 && `(${commMessages.length})`}
+                      </div>
+                      <Badge bg="light" text="dark" className="border">
+                        Obousměrný kanál
+                      </Badge>
                     </div>
-                    <div className="d-flex flex-column gap-2">
-                      {supplementalMessages.map(msg => (
-                        <div key={msg.id} className="p-2 bg-light rounded border-start border-3 border-primary">
-                          <div className="d-flex justify-content-between align-items-start">
-                            <span className="fw-medium text-dark">{msg.newValue}</span>
-                            <span className="small text-muted ms-2 flex-shrink-0">{dateTime(msg.createdAt)}</span>
-                          </div>
+
+                    {commMessages.length === 0 ? (
+                      <div className="text-muted small fst-italic mb-3">
+                        Zatím neproběhla žádná doplňující textová komunikace s oznamovatelem.
+                      </div>
+                    ) : (
+                      <div className="d-flex flex-column gap-2 mb-3">
+                        {commMessages.map(msg => {
+                          const isOperator = msg.action === 'OperatorMessageAdded' || msg.metadata === 'operator';
+                          return (
+                            <div
+                              key={msg.id}
+                              className={`p-2 rounded border-start border-3 ${
+                                isOperator
+                                  ? 'bg-warning-subtle border-warning'
+                                  : 'bg-light border-primary'
+                              }`}
+                            >
+                              <div className="d-flex justify-content-between align-items-start mb-1">
+                                <span className="small fw-bold">
+                                  {isOperator ? '🏢 Velín (operátor)' : '👤 Oznamovatel (občan)'}
+                                </span>
+                                <span className="small text-muted ms-2 flex-shrink-0">
+                                  {dateTime(msg.createdAt)}
+                                </span>
+                              </div>
+                              <div className="text-dark" style={{ whiteSpace: 'pre-wrap' }}>
+                                {msg.newValue}
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
+
+                    {/* Formulář pro odpověď operátora */}
+                    {selected.isLive && (
+                      <form onSubmit={handleSendOperatorMessage} className="pt-2 border-top">
+                        <div className="small text-uppercase text-secondary fw-bold mb-2">
+                          ✉️ Odpovědět oznamovateli
                         </div>
-                      ))}
-                    </div>
+                        {messageError && (
+                          <div className="alert alert-danger py-1 px-2 small mb-2">{messageError}</div>
+                        )}
+                        <div className="input-group">
+                          <input
+                            type="text"
+                            className="form-control"
+                            placeholder="Napište zprávu pro oznamovatele (např. Pomoc je na cestě)..."
+                            value={operatorMessage}
+                            onChange={e => setOperatorMessage(e.target.value)}
+                            disabled={sendingMessage}
+                          />
+                          <Button
+                            type="submit"
+                            variant="primary"
+                            disabled={sendingMessage || !operatorMessage.trim()}
+                            className="d-flex align-items-center gap-1"
+                          >
+                            {sendingMessage ? (
+                              <>
+                                <Spinner animation="border" size="sm" />
+                                <span>Odesílám...</span>
+                              </>
+                            ) : (
+                              <>
+                                <span>Odeslat</span>
+                                <span>➤</span>
+                              </>
+                            )}
+                          </Button>
+                        </div>
+                      </form>
+                    )}
                   </div>
                 );
               })()}
@@ -692,7 +788,8 @@ export default function ReportsPage() {
                         StatusChange: 'Změna stavu',
                         LocationUpdated: 'Zpřesněna GPS poloha',
                         AttachmentAdded: 'Přidána příloha',
-                        MessageAdded: 'Doplňující zpráva',
+                        MessageAdded: 'Doplňující zpráva od oznamovatele',
+                        OperatorMessageAdded: 'Odpověď z velínu',
                         LiveStreamStarted: 'Zahájen živý přenos',
                         LiveStreamEnded: 'Ukončen živý přenos',
                       };

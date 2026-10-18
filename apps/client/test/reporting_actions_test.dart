@@ -462,4 +462,80 @@ void main() {
     notifier.reset();
     await tester.pump();
   });
+
+  testWidgets('timeline distinguishes operator message from citizen message',
+      (tester) async {
+    final mockClient = TestReportsApiClient();
+    final router = createRouter();
+    addTearDown(router.dispose);
+
+    final container = ProviderContainer(
+      overrides: [
+        reportsApiClientProvider.overrideWithValue(mockClient),
+        audioRecorderServiceProvider.overrideWithValue(MockAudioRecorderService()),
+        liveStreamServiceProvider.overrideWithValue(MockLiveStreamService()),
+      ],
+    );
+    addTearDown(container.dispose);
+
+    await tester.pumpWidget(
+      UncontrolledProviderScope(
+        container: container,
+        child: KrizovkaApp(router: router),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    final notifier = container.read(emergencyReportNotifierProvider.notifier);
+    await notifier.sendEmergencyReport();
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 100));
+
+    // Send citizen supplemental message
+    await notifier.sendSupplementalMessage('Jsem v mezipatře.');
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 100));
+
+    // Scroll down to timeline
+    await tester.drag(find.byType(ListView), const Offset(0, -500));
+    await tester.pump();
+
+    // Verify citizen message badge and text
+    expect(find.text('💬 Vy (občan)'), findsOneWidget);
+    expect(find.text('Jsem v mezipatře.'), findsOneWidget);
+
+    // Operator adds response from Velín
+    final opMsg = ReportHistoryItem(
+      id: 'op-msg-1',
+      actorId: 'operator-1',
+      action: 'OperatorMessageAdded',
+      newValue: 'Hlídka je v budově, zůstaňte na místě.',
+      metadata: 'operator',
+      createdAt: DateTime.now(),
+    );
+    mockClient.mockReport = ReportDetail(
+      id: mockClient.mockReport!.id,
+      organizationId: mockClient.mockReport!.organizationId,
+      clientReportId: mockClient.mockReport!.clientReportId,
+      description: mockClient.mockReport!.description,
+      status: mockClient.mockReport!.status,
+      createdAt: mockClient.mockReport!.createdAt,
+      updatedAt: DateTime.now(),
+      contact: mockClient.mockReport!.contact,
+      attachments: mockClient.mockReport!.attachments,
+      history: [...mockClient.mockReport!.history, opMsg],
+    );
+
+    // Advance timer to trigger polling (2 seconds)
+    await tester.pump(const Duration(seconds: 2));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 100));
+
+    // Verify operator message badge and content
+    expect(find.text('🏢 Zpráva z velínu'), findsOneWidget);
+    expect(find.text('Hlídka je v budově, zůstaňte na místě.'), findsOneWidget);
+
+    notifier.reset();
+    await tester.pump();
+  });
 }

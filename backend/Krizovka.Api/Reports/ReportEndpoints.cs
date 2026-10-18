@@ -497,11 +497,40 @@ public static class ReportEndpoints
                     statusCode: StatusCodes.Status404NotFound);
             }
 
-            var actorId = Guid.TryParse(httpContext.User.FindFirst("AccountId")?.Value, out var parsedActor)
-                ? parsedActor
-                : Guid.Empty;
+            var isAuth = httpContext.User.Identity?.IsAuthenticated == true;
+            if (isAuth)
+            {
+                var isSuperAdmin = httpContext.User.IsInRole("SuperAdmin");
+                if (!isSuperAdmin)
+                {
+                    var callerOrgClaim = httpContext.User.FindFirst("OrganizationId")?.Value
+                        ?? httpContext.User.FindFirst("org_id")?.Value;
+                    Guid.TryParse(callerOrgClaim, out var callerOrgId);
 
-            report.AddSupplementalMessage(request.Message, actorId);
+                    if (callerOrgId == Guid.Empty || report.OrganizationId != callerOrgId)
+                    {
+                        return Results.Problem(
+                            title: "Přístup odepřen",
+                            detail: "Hlášení patří jiné organizaci.",
+                            statusCode: StatusCodes.Status403Forbidden);
+                    }
+                }
+
+                var actorId = Guid.TryParse(httpContext.User.FindFirst("AccountId")?.Value, out var parsedActor)
+                    ? parsedActor
+                    : Guid.Empty;
+
+                report.AddOperatorMessage(request.Message, actorId, metadata: "operator");
+            }
+            else
+            {
+                var actorId = Guid.TryParse(httpContext.User.FindFirst("AccountId")?.Value, out var parsedActor)
+                    ? parsedActor
+                    : Guid.Empty;
+
+                report.AddSupplementalMessage(request.Message, actorId, metadata: "citizen");
+            }
+
             await db.SaveChangesAsync(ct);
 
             return Results.Ok(ToDetailDto(report));

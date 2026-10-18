@@ -128,7 +128,7 @@ public sealed class Issue
         );
     }
 
-    public void AddSupplementalMessage(string message, Guid actorId)
+    public void AddSupplementalMessage(string message, Guid actorId, string? metadata = null)
     {
         if (string.IsNullOrWhiteSpace(message))
             throw new ArgumentException("Message cannot be empty.", nameof(message));
@@ -141,7 +141,25 @@ public sealed class Issue
             action: "MessageAdded",
             previousValue: null,
             newValue: message.Trim(),
-            metadata: null,
+            metadata: metadata,
+            timestamp: now
+        );
+    }
+
+    public void AddOperatorMessage(string message, Guid actorId, string? metadata = "operator")
+    {
+        if (string.IsNullOrWhiteSpace(message))
+            throw new ArgumentException("Message cannot be empty.", nameof(message));
+
+        var now = DateTimeOffset.UtcNow;
+        UpdatedAt = now;
+
+        AddHistoryEntry(
+            actorId: actorId,
+            action: "OperatorMessageAdded",
+            previousValue: null,
+            newValue: message.Trim(),
+            metadata: metadata,
             timestamp: now
         );
     }
