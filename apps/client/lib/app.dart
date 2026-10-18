@@ -316,10 +316,10 @@ class _ReportsPageState extends ConsumerState<_ReportsPage> {
     final baseUrl = ref.watch(apiBaseUrlProvider);
     final isEmergencyActive = emergencyState.isEmergencyActive;
 
-    final supplementalMessages = emergencyState.report?.history
+    final timelineEvents = emergencyState.report?.history ?? const [];
+    final supplementalMessages = timelineEvents
             .where((h) => h.action == 'MessageAdded')
-            .toList() ??
-        const [];
+            .toList();
 
     return ListView(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
@@ -821,50 +821,57 @@ class _ReportsPageState extends ConsumerState<_ReportsPage> {
             const SizedBox(height: 16),
           ],
 
-          // Supplemental messages thread
-          Text(
-            'Doplňující zprávy k incidentu',
-            style: const TextStyle(
-              fontWeight: FontWeight.w800,
-              fontSize: 14,
-              color: Color(0xFF0F172A),
-            ),
-          ),
-          const SizedBox(height: 8),
-          if (supplementalMessages.isEmpty)
-            const Text(
-              'Zatím nebyly zaslány doplňující zprávy.',
-              style: TextStyle(fontSize: 12, color: Color(0xFF64748B), fontStyle: FontStyle.italic),
-            )
-          else
-            for (final msg in supplementalMessages)
+          // Online Incident Stream Timeline
+          Row(
+            children: [
               Container(
-                margin: const EdgeInsets.only(bottom: 8),
-                padding: const EdgeInsets.all(12),
+                width: 10,
+                height: 10,
                 decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: const Color(0xFFE2E8F0)),
+                  color: isEmergencyActive ? const Color(0xFF10B981) : const Color(0xFF64748B),
+                  shape: BoxShape.circle,
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+              ),
+              const SizedBox(width: 8),
+              const Text(
+                'Online stream incidentu',
+                style: TextStyle(
+                  fontWeight: FontWeight.w800,
+                  fontSize: 14,
+                  color: Color(0xFF0F172A),
+                ),
+              ),
+              const Spacer(),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFECFDF5),
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: const Color(0xFFA7F3D0)),
+                ),
+                child: const Row(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
+                    Icon(Icons.sync, size: 12, color: Color(0xFF059669)),
+                    SizedBox(width: 4),
                     Text(
-                      msg.newValue ?? '',
-                      style: const TextStyle(
-                        fontSize: 13,
-                        fontWeight: FontWeight.w600,
-                        color: Color(0xFF1E293B),
-                      ),
-                    ),
-                    const SizedBox(height: 4),
-                    Text(
-                      'Odesláno: ${msg.createdAt.hour.toString().padLeft(2, '0')}:${msg.createdAt.minute.toString().padLeft(2, '0')}:${msg.createdAt.second.toString().padLeft(2, '0')}',
-                      style: const TextStyle(fontSize: 11, color: Color(0xFF94A3B8)),
+                      'Živě synchronizováno',
+                      style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold, color: Color(0xFF059669)),
                     ),
                   ],
                 ),
               ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          if (timelineEvents.isEmpty)
+            const Text(
+              'Zatím nebyly zaznamenány žádné události.',
+              style: TextStyle(fontSize: 12, color: Color(0xFF64748B), fontStyle: FontStyle.italic),
+            )
+          else
+            for (final item in timelineEvents)
+              _buildTimelineItem(item),
 
           const SizedBox(height: 10),
           // Input row for supplemental message
@@ -1008,6 +1015,135 @@ class _ReportsPageState extends ConsumerState<_ReportsPage> {
           },
         ),
       ],
+    );
+  }
+
+  Widget _buildTimelineItem(ReportHistoryItem item) {
+    final timeStr =
+        '${item.createdAt.hour.toString().padLeft(2, '0')}:${item.createdAt.minute.toString().padLeft(2, '0')}:${item.createdAt.second.toString().padLeft(2, '0')}';
+
+    final Color badgeBg;
+    final Color badgeText;
+    final String badgeLabel;
+    final IconData icon;
+    final String content;
+    final String? subtitle;
+
+    switch (item.action) {
+      case 'MessageAdded':
+        badgeBg = const Color(0xFFEFF6FF);
+        badgeText = const Color(0xFF1D4ED8);
+        badgeLabel = '💬 Vy (občan)';
+        icon = Icons.message_rounded;
+        content = item.newValue ?? '';
+        subtitle = null;
+      case 'StatusChange':
+        final isAccepted = (item.newValue ?? '').toLowerCase() == 'accepted';
+        badgeBg = isAccepted ? const Color(0xFFECFDF5) : const Color(0xFFF1F5F9);
+        badgeText = isAccepted ? const Color(0xFF047857) : const Color(0xFF334155);
+        badgeLabel = '🏢 Velín';
+        icon = isAccepted ? Icons.check_circle_outline : Icons.flag_outlined;
+        content = isAccepted
+            ? 'Operátor převzal hlášení – pomoc je na cestě'
+            : 'Změna stavu: ${item.newValue}';
+        subtitle = item.metadata?.isNotEmpty == true ? 'Poznámka dispečinku: ${item.metadata}' : null;
+      case 'AttachmentAdded':
+        badgeBg = const Color(0xFFFEF3C7);
+        badgeText = const Color(0xFFB45309);
+        badgeLabel = '📎 Médium';
+        icon = Icons.attach_file;
+        content = 'Přiložen soubor: ${item.newValue ?? 'Příloha'}';
+        subtitle = null;
+      case 'LiveStreamStarted':
+        badgeBg = const Color(0xFFFEF2F2);
+        badgeText = const Color(0xFFDC2626);
+        badgeLabel = '🔴 Živý přenos';
+        icon = Icons.videocam_rounded;
+        content = 'Zahájen živý přenos (${item.newValue ?? 'uplink'})';
+        subtitle = null;
+      case 'LiveStreamEnded':
+        badgeBg = const Color(0xFFF1F5F9);
+        badgeText = const Color(0xFF475569);
+        badgeLabel = '⏹️ Přenos ukončen';
+        icon = Icons.stop_circle_outlined;
+        content = 'Živý přenos ukončen';
+        subtitle = null;
+      case 'Created':
+        badgeBg = const Color(0xFFF8FAFC);
+        badgeText = const Color(0xFF0F172A);
+        badgeLabel = '🚨 Hlášení';
+        icon = Icons.notification_important_rounded;
+        content = 'Tísňové hlášení odesláno na velín';
+        subtitle = null;
+      default:
+        badgeBg = const Color(0xFFF1F5F9);
+        badgeText = const Color(0xFF64748B);
+        badgeLabel = item.action;
+        icon = Icons.info_outline;
+        content = item.newValue ?? item.action;
+        subtitle = item.metadata;
+    }
+
+    return Container(
+      margin: const EdgeInsets.only(bottom: 8),
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(color: const Color(0xFFE2E8F0)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                decoration: BoxDecoration(
+                  color: badgeBg,
+                  borderRadius: BorderRadius.circular(6),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(icon, size: 13, color: badgeText),
+                    const SizedBox(width: 4),
+                    Text(
+                      badgeLabel,
+                      style: TextStyle(
+                        fontSize: 11,
+                        fontWeight: FontWeight.w700,
+                        color: badgeText,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const Spacer(),
+              Text(
+                timeStr,
+                style: const TextStyle(fontSize: 11, color: Color(0xFF94A3B8)),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          Text(
+            content,
+            style: const TextStyle(
+              fontSize: 13,
+              fontWeight: FontWeight.w600,
+              color: Color(0xFF1E293B),
+            ),
+          ),
+          if (subtitle != null) ...[
+            const SizedBox(height: 4),
+            Text(
+              subtitle,
+              style: const TextStyle(fontSize: 12, color: Color(0xFF64748B), fontStyle: FontStyle.italic),
+            ),
+          ],
+        ],
+      ),
     );
   }
 }

@@ -207,21 +207,27 @@ public static class ReportEndpoints
                     statusCode: StatusCodes.Status404NotFound);
             }
 
-            var callerOrgClaim = httpContext.User.FindFirst("OrganizationId")?.Value
-                ?? httpContext.User.FindFirst("org_id")?.Value;
-            Guid.TryParse(callerOrgClaim, out var callerOrgId);
-            var isSuperAdmin = httpContext.User.IsInRole("SuperAdmin");
-
-            if (!isSuperAdmin && report.OrganizationId != callerOrgId)
+            if (httpContext.User.Identity?.IsAuthenticated == true)
             {
-                return Results.Problem(
-                    title: "Přístup odepřen",
-                    detail: "Hlášení patří jiné organizaci.",
-                    statusCode: StatusCodes.Status403Forbidden);
+                var isSuperAdmin = httpContext.User.IsInRole("SuperAdmin");
+                if (!isSuperAdmin)
+                {
+                    var callerOrgClaim = httpContext.User.FindFirst("OrganizationId")?.Value
+                        ?? httpContext.User.FindFirst("org_id")?.Value;
+                    Guid.TryParse(callerOrgClaim, out var callerOrgId);
+
+                    if (callerOrgId == Guid.Empty || report.OrganizationId != callerOrgId)
+                    {
+                        return Results.Problem(
+                            title: "Přístup odepřen",
+                            detail: "Hlášení patří jiné organizaci.",
+                            statusCode: StatusCodes.Status403Forbidden);
+                    }
+                }
             }
 
             return Results.Ok(ToDetailDto(report));
-        }).RequireAuthorization("OperatorPolicy");
+        }).AllowAnonymous();
 
         // 4. Update status (Převzít / Uzavřít operátorem) - Vyžaduje autorizaci
         group.MapPost("{id:guid}/status", async (
@@ -371,6 +377,7 @@ public static class ReportEndpoints
                 };
 
                 report.AddAttachment(attachment, actorId);
+                db.Set<IssueAttachment>().Add(attachment);
                 await db.SaveChangesAsync(ct);
 
                 return Results.Created($"/api/reports/{id}/attachments/{attachment.Id}", new ReportAttachmentDto(
@@ -413,17 +420,23 @@ public static class ReportEndpoints
                     statusCode: StatusCodes.Status404NotFound);
             }
 
-            var callerOrgClaim = httpContext.User.FindFirst("OrganizationId")?.Value
-                ?? httpContext.User.FindFirst("org_id")?.Value;
-            Guid.TryParse(callerOrgClaim, out var callerOrgId);
-            var isSuperAdmin = httpContext.User.IsInRole("SuperAdmin");
-
-            if (!isSuperAdmin && report.OrganizationId != callerOrgId)
+            if (httpContext.User.Identity?.IsAuthenticated == true)
             {
-                return Results.Problem(
-                    title: "Přístup odepřen",
-                    detail: "Hlášení patří jiné organizaci.",
-                    statusCode: StatusCodes.Status403Forbidden);
+                var isSuperAdmin = httpContext.User.IsInRole("SuperAdmin");
+                if (!isSuperAdmin)
+                {
+                    var callerOrgClaim = httpContext.User.FindFirst("OrganizationId")?.Value
+                        ?? httpContext.User.FindFirst("org_id")?.Value;
+                    Guid.TryParse(callerOrgClaim, out var callerOrgId);
+
+                    if (callerOrgId == Guid.Empty || report.OrganizationId != callerOrgId)
+                    {
+                        return Results.Problem(
+                            title: "Přístup odepřen",
+                            detail: "Hlášení patří jiné organizaci.",
+                            statusCode: StatusCodes.Status403Forbidden);
+                    }
+                }
             }
 
             var attachment = await db.Set<IssueAttachment>()
@@ -453,7 +466,7 @@ public static class ReportEndpoints
                 fileDownloadName: attachment.FileName,
                 enableRangeProcessing: true
             );
-        }).RequireAuthorization("OperatorPolicy");
+        }).AllowAnonymous();
 
         // 8. Add supplemental text message
         group.MapPost("{id:guid}/messages", async (

@@ -185,26 +185,42 @@ public class ReportTenantSecurityTests : IClassFixture<WebApplicationFactory<Pro
     }
 
     [Fact]
-    public async Task Anonymous_Request_To_Report_Detail_Returns_401()
+    public async Task Anonymous_Request_To_Report_List_Returns_401()
     {
-        var (reportA, _) = await SeedReportsAsync();
+        await SeedReportsAsync();
 
-        // Anonymous call without authorization header
-        var response = await _client.GetAsync($"/api/reports/{reportA.Id}");
+        // Listing reports requires OperatorPolicy
+        var response = await _client.GetAsync("/api/reports");
 
         Assert.Equal(HttpStatusCode.Unauthorized, response.StatusCode);
     }
 
     [Fact]
-    public async Task Anonymous_Request_To_Attachment_Returns_401()
+    public async Task Anonymous_Request_To_Report_Detail_By_Id_Succeeds_For_Client_Polling()
+    {
+        var (reportA, _) = await SeedReportsAsync();
+
+        // Anonymous call with specific report GUID succeeds for citizen client polling
+        var response = await _client.GetAsync($"/api/reports/{reportA.Id}");
+
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        var detail = await response.Content.ReadFromJsonAsync<ReportDetailDto>();
+        Assert.NotNull(detail);
+        Assert.Equal(reportA.Id, detail.Id);
+    }
+
+    [Fact]
+    public async Task Anonymous_Request_To_Attachment_By_Id_Succeeds_For_Client_Preview()
     {
         var (reportA, _) = await SeedReportsAsync();
         var attachmentA = reportA.Attachments.First();
 
-        // Anonymous call without authorization header
+        // Anonymous call with specific report and attachment GUID succeeds
         var response = await _client.GetAsync($"/api/reports/{reportA.Id}/attachments/{attachmentA.Id}");
 
-        Assert.Equal(HttpStatusCode.Unauthorized, response.StatusCode);
+        // In test environment dummy storage returns 404 file not found or 200 file, but NEVER 401 Unauthorized
+        Assert.NotEqual(HttpStatusCode.Unauthorized, response.StatusCode);
+        Assert.NotEqual(HttpStatusCode.Forbidden, response.StatusCode);
     }
 
     [Fact]

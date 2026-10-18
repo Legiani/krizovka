@@ -133,13 +133,17 @@ export default function ReportsPage() {
     };
   }, [activeOrgId, currentUser]);
 
-  // Load detail when selectedId changes
+  // Load detail and keep live polling while selected
   useEffect(() => {
-    if (!selectedId) return;
+    if (!selectedId) {
+      setSelectedDetail(null);
+      return;
+    }
 
     const controller = new AbortController();
-    Promise.resolve().then(() => {
-      setLoadingDetail(true);
+    setLoadingDetail(true);
+
+    const pollDetail = () => {
       fetchReportDetail(selectedId, controller.signal)
         .then(detail => {
           setSelectedDetail(detail);
@@ -150,10 +154,14 @@ export default function ReportsPage() {
         .finally(() => {
           setLoadingDetail(false);
         });
-    });
+    };
+
+    pollDetail();
+    const interval = setInterval(pollDetail, 2500);
 
     return () => {
       controller.abort();
+      clearInterval(interval);
     };
   }, [selectedId]);
 

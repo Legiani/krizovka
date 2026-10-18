@@ -7,6 +7,7 @@ RUN dotnet publish backend/Krizovka.Api/Krizovka.Api.csproj -c Release -o /out -
 FROM mcr.microsoft.com/dotnet/aspnet:10.0
 WORKDIR /app
 COPY --from=build /out .
+RUN mkdir -p /app/data/attachments && chown -R app:app /app/data
 ENV ASPNETCORE_HTTP_PORTS=8080
 USER app
 EXPOSE 8080

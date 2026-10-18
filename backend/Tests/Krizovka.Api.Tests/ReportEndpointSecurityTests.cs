@@ -151,4 +151,48 @@ public class ReportEndpointSecurityTests : IClassFixture<WebApplicationFactory<P
         Assert.Equal("203.0.113.88", created.IpAddress);
         Assert.Null(created.Contact.FirstName);
     }
+
+    [Fact]
+    public async Task Upload_And_Download_Attachment_Anonymously_Succeeds()
+    {
+        var orgId = Guid.NewGuid();
+        var clientReportId = Guid.NewGuid();
+
+        var createRes = await _client.PostAsJsonAsync("/api/reports", new
+        {
+            ClientReportId = clientReportId,
+            OrganizationId = orgId,
+            Description = "Hlášení s přílohou"
+        });
+        Assert.Equal(HttpStatusCode.Created, createRes.StatusCode);
+        var report = await createRes.Content.ReadFromJsonAsync<ReportDetailDto>();
+        Assert.NotNull(report);
+
+        // Upload attachment anonymously
+        using var content = new MultipartFormDataContent();
+        var fileContent = new ByteArrayContent("dummy-image-bytes"u8.ToArray());
+        fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/jpeg");
+        content.Add(fileContent, "file", "evidence.jpg");
+
+        var uploadRes = await _client.PostAsync($"/api/reports/{report.Id}/attachments", content);
+        Assert.Equal(HttpStatusCode.Created, uploadRes.StatusCode);
+
+        var attachment = await uploadRes.Content.ReadFromJsonAsync<ReportAttachmentDto>();
+        Assert.NotNull(attachment);
+        Assert.Equal("evidence.jpg", attachment.FileName);
+
+        // Download attachment anonymously
+        var downloadRes = await _client.GetAsync($"/api/reports/{report.Id}/attachments/{attachment.Id}");
+        Assert.Equal(HttpStatusCode.OK, downloadRes.StatusCode);
+        var bytes = await downloadRes.Content.ReadAsByteArrayAsync();
+        Assert.Equal("dummy-image-bytes"u8.ToArray(), bytes);
+
+        // Poll report detail anonymously
+        var detailRes = await _client.GetAsync($"/api/reports/{report.Id}");
+        Assert.Equal(HttpStatusCode.OK, detailRes.StatusCode);
+        var detail = await detailRes.Content.ReadFromJsonAsync<ReportDetailDto>();
+        Assert.NotNull(detail);
+        Assert.Single(detail.Attachments);
+        Assert.Equal(attachment.Id, detail.Attachments[0].Id);
+    }
 }

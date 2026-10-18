@@ -43,6 +43,12 @@ spec:
           livenessProbe:
             httpGet: { path: /health/live, port: 8080 }
             periodSeconds: 20
+          volumeMounts:
+            - name: attachments-storage
+              mountPath: /app/data
+      volumes:
+        - name: attachments-storage
+          emptyDir: {}
 ---
 apiVersion: v1
 kind: Service

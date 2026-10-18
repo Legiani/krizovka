@@ -14,11 +14,21 @@ public sealed class FileSystemAttachmentStorage : IAttachmentStorage
     public FileSystemAttachmentStorage(IConfiguration configuration, IWebHostEnvironment environment)
     {
         var configuredPath = configuration["Storage:AttachmentsDirectory"];
-        _baseDirectory = !string.IsNullOrWhiteSpace(configuredPath)
+        var primaryPath = !string.IsNullOrWhiteSpace(configuredPath)
             ? Path.GetFullPath(configuredPath)
             : Path.Combine(environment.ContentRootPath, "data", "attachments");
 
-        Directory.CreateDirectory(_baseDirectory);
+        try
+        {
+            Directory.CreateDirectory(primaryPath);
+            _baseDirectory = primaryPath;
+        }
+        catch (Exception ex) when (ex is UnauthorizedAccessException or IOException)
+        {
+            var fallbackPath = Path.Combine(Path.GetTempPath(), "krizovka", "attachments");
+            Directory.CreateDirectory(fallbackPath);
+            _baseDirectory = fallbackPath;
+        }
     }
 
     public async Task<string> SaveAttachmentAsync(Guid reportId, Guid attachmentId, string fileName, Stream fileStream, CancellationToken ct = default)
